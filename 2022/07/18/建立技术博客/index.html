@@ -24,7 +24,7 @@
 
   
 
-  <title>建立个人技术博客 | 神无月</title>
+  <title>建立技术博客 | 神无月</title>
 
   
 
@@ -98,11 +98,11 @@
     <div class="header-content">
       <div class="post-text layout-block">
         <div class="layout-margin">
-          <h1 class="title-wrap">建立个人技术博客</h1>
+          <h1 class="title-wrap">建立技术博客</h1>
           <h2 class="title-sub-wrap">
             <strong>John Doe</strong>
             <span>发布于</span>
-            <time  class="article-date" datetime="2022-07-18T06:30:41.000Z" itemprop="datePublished">2022-07-18</time>
+            <time  class="article-date" datetime="2022-07-18T06:47:30.000Z" itemprop="datePublished">2022-07-18</time>
           </h2>
           <ul class="wrap-list dark">
   
@@ -131,13 +131,65 @@
       
       
       <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
-        <h1 id="用Github新建了一个技术博客"><a href="#用Github新建了一个技术博客" class="headerlink" title="用Github新建了一个技术博客"></a>用Github新建了一个技术博客</h1><p>hexo操作 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">https://hexo.io/zh-cn/docs/asset-folders.html</a></p>
+        <h1 id="用Github新建了一个技术博客"><a href="#用Github新建了一个技术博客" class="headerlink" title="用Github新建了一个技术博客"></a>用Github新建了一个技术博客</h1><p>hexo官网 <a target="_blank" rel="noopener" href="https://hexo.bootcss.com/docs/">https://hexo.bootcss.com/docs/</a></p>
 <p>个人主页 <a target="_blank" rel="noopener" href="https://shenwuyue-xie.github.io/">https://shenwuyue-xie.github.io/</a></p>
 <p>模板使用： <a target="_blank" rel="noopener" href="https://kyori.xyz/">https://kyori.xyz/</a></p>
-<p>教程： <a target="_blank" rel="noopener" href="https://blog.csdn.net/yaorongke/article/details/119089190">https://blog.csdn.net/yaorongke/article/details/119089190</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a></p>
+<p>教程： <a target="_blank" rel="noopener" href="https://blog.csdn.net/yaorongke/article/details/119089190">https://blog.csdn.net/yaorongke/article/details/119089190</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26625249">https://zhuanlan.zhihu.com/p/26625249</a></p>
 <p>以后可以尝试使用Jekyll搭建博客</p>
 <p>可以尝试更换模板 在hexo官网主题上 <a target="_blank" rel="noopener" href="https://hexo.io/themes/">https://hexo.io/themes/</a></p>
+<h1 id="hexo常用命令"><a href="#hexo常用命令" class="headerlink" title="hexo常用命令"></a>hexo常用命令</h1><p>官网可查 <a target="_blank" rel="noopener" href="https://hexo.bootcss.com/docs/commands.html">https://hexo.bootcss.com/docs/commands.html</a></p>
+<pre><code>npm install hexo -g #安装  
+npm update hexo -g #升级  
+hexo init #初始化
+</code></pre>
+<h2 id="new"><a href="#new" class="headerlink" title="new"></a>new</h2><pre><code>$ hexo new [layout] &lt;title&gt;
+$ hexo new &quot;post title with whitespace&quot;
+</code></pre>
+<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。</p>
+<pre><code>参数	      描述
+-p, --path	    自定义新文章的路径
+-r, --replace	如果存在同名文章，将其替换
+-s, --slug	    文章的 Slug，作为新文章的文件名和发布后的 URL
+</code></pre>
+<p>默认情况下，Hexo 会使用文章的标题来决定文章文件的路径。对于独立页面来说，Hexo 会创建一个以标题为名字的目录，并在目录中放置一个 index.md 文件。你可以使用 –path 参数来覆盖上述行为、自行决定文件的目录：</p>
+<pre><code>hexo new page --path about/me &quot;About me&quot;
+</code></pre>
+<p>以上命令会创建一个 source&#x2F;about&#x2F;me.md 文件，同时 Front Matter 中的 title 为 “About me”</p>
+<p>注意！title 是必须指定的！如果你这么做并不能达到你的目的：</p>
+<pre><code>hexo new page --path about/me
+</code></pre>
+<p>此时 Hexo 会创建 source&#x2F;_posts&#x2F;about&#x2F;me.md，同时 me.md 的 Front Matter 中的 title 为 “page”。这是因为在上述命令中，hexo-cli 将 page 视为指定文章的标题、并采用默认的 layout。</p>
+<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><pre><code>$ hexo generate #生成静态文件
+
+选项	描述
+-d, --deploy	    文件生成后立即部署网站
+-w, --watch	        监视文件变动
+-b, --bail	        生成过程中如果发生任何未处理的异常则抛出异常
+-f, --force	        强制重新生成文件
+-c, --concurrency	最大同时生成文件的数量，默认无限制
+</code></pre>
+<p>Hexo 引入了差分机制，如果 public 目录存在，那么 hexo g 只会重新生成改动的文件。使用该参数的效果接近 hexo clean &amp;&amp; hexo generate</p>
+<p>可以简写为 </p>
+<pre><code>$ hexo g
+</code></pre>
+<h2 id="server"><a href="#server" class="headerlink" title="server"></a>server</h2><pre><code>$ hexo server
+</code></pre>
+<p>启动服务器。默认情况下，访问网址为： <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000/</a></p>
+<pre><code>选项	      描述
+-p, --port	 重设端口
+-s, --static 只使用静态文件
+-l, --log	 启动日记记录，使用覆盖记录格式
+</code></pre>
+<h2 id="deploy"><a href="#deploy" class="headerlink" title="deploy"></a>deploy</h2><pre><code>$ hexo deploy
+</code></pre>
+<p>部署网站。</p>
+<pre><code>参数	        描述
+-g, --generate	部署之前预先生成静态文件
+</code></pre>
+<p>该命令可以简写为</p>
+<pre><code>$ hexo d
+</code></pre>
+<p>markdown列表语法 <a target="_blank" rel="noopener" href="https://markdown.com.cn/basic-syntax/lists.html">https://markdown.com.cn/basic-syntax/lists.html</a></p>
 
       </section>
 
@@ -151,8 +203,8 @@
     
     <div class="card-text">
       
-        <a href="/2022/07/18/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E9%A1%B9%E7%9B%AE/" itemprop="url">
-          <h2 class="card-text--title text-ellipsis">前后端分离项目</h2>
+        <a href="/2022/07/18/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">测试文章</h2>
         </a>
       
       <div class="card-text--row">Older</div>
@@ -194,7 +246,7 @@
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>4</span>
+        <span>3</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
