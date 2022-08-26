@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>JWT总结 | 神无月</title>
+  <title>Java反射机制 | 神无月</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;07&#x2F;json_web_token-tutorial.html https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;86937325 主要用于授权认证和信息交换 分为三个部分,每个部分用”.”分隔，即 xxx.yyy.zzz Header Payload Signature  将基于服务器的身份认证转换为基于客户端信息的">
+  <meta name="description" content="清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JWT总结">
-<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/07/18/JWT%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:title" content="Java反射机制">
+<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/index.html">
 <meta property="og:site_name" content="神无月">
-<meta property="og:description" content="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;2018&#x2F;07&#x2F;json_web_token-tutorial.html https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;86937325 主要用于授权认证和信息交换 分为三个部分,每个部分用”.”分隔，即 xxx.yyy.zzz Header Payload Signature  将基于服务器的身份认证转换为基于客户端信息的">
+<meta property="og:description" content="清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-18T11:38:46.000Z">
-<meta property="article:modified_time" content="2022-08-24T05:46:56.893Z">
+<meta property="article:published_time" content="2022-08-26T05:45:50.000Z">
+<meta property="article:modified_time" content="2022-08-26T05:45:50.852Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
   
@@ -73,12 +73,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-JWT总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Java反射机制" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/18/JWT%E6%80%BB%E7%BB%93/" class="article-date">
-  <time class="post-time" datetime="2022-07-18T11:38:46.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">18</span>
+    <a href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="article-date">
+  <time class="post-time" datetime="2022-08-26T05:45:50.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">26</span>
   </time>
 </a>
    
@@ -90,16 +90,12 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JWT总结
+      Java反射机制
     </h1>
   
 
         <div>
           
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
           
               
 
@@ -109,20 +105,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html">http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/86937325">https://zhuanlan.zhihu.com/p/86937325</a></p>
-<p>主要用于授权认证和信息交换</p>
-<p>分为三个部分,每个部分用”.”分隔，即 xxx.yyy.zzz</p>
-<pre><code>Header
-Payload
-Signature
-</code></pre>
-<p>将基于服务器的身份认证转换为基于客户端信息的认证方式，减轻了服务器的工作量，并且容易跨域认证，可以不用考虑多个服务器之间分享session信息的问题</p>
-
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/JWT%E6%80%BB%E7%BB%93/" data-id="cl6x7jmxn0005pksedkq1d2h5" class="article-share-link">分享</a>
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-id="cl7a3n6av00032wse4yzm2gub" class="article-share-link">分享</a>
       
       
     </footer>
@@ -131,19 +118,10 @@ Signature
     
 <nav id="article-nav">
   
-    <a href="/2022/07/25/7%E6%9C%8825%E6%97%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          7月25日学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/08/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%8F%91/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">项目学习资料</div>
+      <div class="article-nav-title">Java多线程开发</div>
     </a>
   
 </nav>
