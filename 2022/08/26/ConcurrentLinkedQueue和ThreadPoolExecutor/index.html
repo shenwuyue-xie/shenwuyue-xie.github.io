@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Java多线程开发 | 神无月</title>
+  <title>ConcurrentLinkedQueue和ThreadPoolExecutor | 神无月</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ConcurrentLinkedQueuehttps:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_38293564&#x2F;article&#x2F;details&#x2F;80798310 线程安全的队列实现方式有两种，">
+  <meta name="description" content="ConcurrentLinkedQueuehttps:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_38293564&#x2F;article&#x2F;details&#x2F;80798310 https:&#x2F;&#x2F;www.pdai.tech&#x2F;md&#x2F;java&#x2F;thread&#x2F;java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0 线程安全">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java多线程开发">
-<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:title" content="ConcurrentLinkedQueue和ThreadPoolExecutor">
+<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/index.html">
 <meta property="og:site_name" content="神无月">
-<meta property="og:description" content="ConcurrentLinkedQueuehttps:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_38293564&#x2F;article&#x2F;details&#x2F;80798310 线程安全的队列实现方式有两种，">
+<meta property="og:description" content="ConcurrentLinkedQueuehttps:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_38293564&#x2F;article&#x2F;details&#x2F;80798310 https:&#x2F;&#x2F;www.pdai.tech&#x2F;md&#x2F;java&#x2F;thread&#x2F;java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0 线程安全">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-26T01:56:08.000Z">
-<meta property="article:modified_time" content="2022-08-30T02:14:38.024Z">
+<meta property="article:modified_time" content="2022-08-30T07:36:10.033Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
   
@@ -47,7 +47,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -73,9 +73,9 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-Java多线程开发" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-ConcurrentLinkedQueue和ThreadPoolExecutor" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/08/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%8F%91/" class="article-date">
+    <a href="/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" class="article-date">
   <time class="post-time" datetime="2022-08-26T01:56:08.000Z" itemprop="datePublished">
     <span class="post-month">8月</span><br/>
     <span class="post-day">26</span>
@@ -90,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java多线程开发
+      ConcurrentLinkedQueue和ThreadPoolExecutor
     </h1>
   
 
@@ -109,13 +109,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>ConcurrentLinkedQueue<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38293564/article/details/80798310">https://blog.csdn.net/qq_38293564/article/details/80798310</a></p>
-<p>线程安全的队列实现方式有两种，</p>
+        <h2 id="ConcurrentLinkedQueue"><a href="#ConcurrentLinkedQueue" class="headerlink" title="ConcurrentLinkedQueue"></a>ConcurrentLinkedQueue</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38293564/article/details/80798310">https://blog.csdn.net/qq_38293564/article/details/80798310</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0">https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0</a></p>
+<p>线程安全的队列实现方式有两种，阻塞算法和非阻塞算法，使用阻塞算法的队列可以用一个锁（入队和出队用同一把锁）或两个锁（入队和出队用不同的锁）等方式来实现，而非阻塞的实现方式则可以使用循环CAS的方式来实现。</p>
+<p>ConcurerntLinkedQueue以非阻塞方式实现</p>
+<p>ConcurerntLinkedQueue一个基于链接节点的无界线程安全队列。此队列按照 FIFO(先进先出)原则对元素进行排序。队列的头部是队列中时间最长的元素。队列的尾部 是队列中时间最短的元素。新的元素插入到队列的尾部，队列获取操作从队列头部获得元素。当多个线程共享访问一个公共 collection 时，ConcurrentLinkedQueue是一个恰当的选择。此队列不允许使用null元素</p>
+<p>ConcurrentLinkedQueue的数据结构与LinkedBlockingQueue的数据结构相同，都是使用的链表结构，包含一个头节点和一个尾节点</p>
+<p>内部类Node<br>    private static class Node<E>{<br>        …<br>    }<br>Node类表示链表结点，用于存放元素，包含item域和next域，item域表示元素，next域表示下一个结点，其利用反射机制和CAS机制来更新item域和next域，保证原子性。</p>
+<p>类属性中包含了head域和tail域，表示链表的头节点和尾结点，同时，ConcurrentLinkedQueue也使用了反射机制和CAS机制来更新头节点和尾结点，保证原子性。</p>
+<p>offer()函数用于将指定元素插入此队列的尾部</p>
+<p>poll()函数用于获取并移除此队列的头，如果此队列为空，则返回null</p>
+<p>remove()函数用于从队列中移除指定元素的单个实例(如果存在)。其中，会调用到first函数和succ函数</p>
+<p>size()函数用于返回ConcurrenLinkedQueue的大小，从第一个存活的结点(first)开始，往后遍历链表，当结点的item域不为null时，增加计数，之后返回大小。</p>
+<p>线程不会因为ConcurrentLinkedQueue队列为空而等待，而是直接返回null，所以当实现队列不空时，等待时，则需要用户自己实现等待逻辑。<br>详细查看<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0">https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0</a></p>
+<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c41e942bcd64">https://www.jianshu.com/p/c41e942bcd64</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f030aa5d7a28">https://www.jianshu.com/p/f030aa5d7a28</a><br><a target="_blank" rel="noopener" href="https://www.twle.cn/c/yufei/javatm/javatm-basic-thread-pool2.html">https://www.twle.cn/c/yufei/javatm/javatm-basic-thread-pool2.html</a></p>
+<p>concurrent包</p>
+<p>java.util.concurrent.locks.ReentrantLock</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%BC%80%E5%8F%91/" data-id="cl7a3n6am00012wsegck5hsfi" class="article-share-link">分享</a>
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" data-id="cl7h8etqp0000ucseeet265na" class="article-share-link">分享</a>
       
       
     </footer>
@@ -185,7 +199,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

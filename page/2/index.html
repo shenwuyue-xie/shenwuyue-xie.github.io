@@ -45,7 +45,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -72,6 +72,150 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-Java数组" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/24/Java%E6%95%B0%E7%BB%84/" class="article-date">
+  <time class="post-time" datetime="2022-08-24T05:50:51.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">24</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/24/Java%E6%95%B0%E7%BB%84/">Java数组</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ArrayList-List-String-Array"><a href="#ArrayList-List-String-Array" class="headerlink" title="ArrayList,List,String[],Array"></a>ArrayList,List<String>,String[],Array</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wiidi/article/details/82662965">https://blog.csdn.net/wiidi/article/details/82662965</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/niceyoo/article/details/103097173">https://blog.csdn.net/niceyoo/article/details/103097173</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42002500/article/details/111088801">https://blog.csdn.net/qq_42002500/article/details/111088801</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38278993/article/details/104316623">https://blog.csdn.net/weixin_38278993/article/details/104316623</a></p>
+<p>List是一个接口类，不能创建实例对象，但是可以为List接口创建一个指向自己的对象引用。而ArrayList实现类的实例对象就在这充当指向List接口的对象引用。 </p>
+<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
+</code></pre>
+<p>List有两个重要的实现类：ArrayList和LinkedList</p>
+<img src="/2022/08/24/Java%E6%95%B0%E7%BB%84/Inheritance_relationship.png" class="">
+
+<p>string[]数组里面是存放string型的值，List<string>是存放string类型的对象，<br>String[]是数组，定长，不可变,List<string> 是泛型 ，非定长，可变<br>如果不能确定数组长度，或者在计算值时需要不断向中间插入一个字符串，可以使用List<string>，生成完成后再用ToArray()方法转换为string[]， String[]也可以通过List的AddRange方法添加到List<string>。</p>
+<p>String[]转List：List<String> list &#x3D; Arrays.asList(arr);<br>List转String[]： String[] arr &#x3D; list.toArray(new String[ list.size() ]);</p>
+<p>asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象——这也正是包装类出现的一个主要原因。当传入一个原生数据类型数组时，asList 的真正得到的参数就不是数组中的元素，而是数组对象本身！此时List 的唯一元素就是这个数组。原生数据类型包括了int,short,long等。</p>
+<pre><code>public class Test &#123;
+    public static void main(String[] args) &#123;
+    int[] myArray = &#123; 1, 2, 3 &#125;;
+    List myList = Arrays.asList(myArray);
+    System.out.println(myList.size());
+    &#125;
+&#125;
+</code></pre>
+<p>此代码输出1，而非3。如果尝试遍历 myList ，你会发现得到的元素不是1、2、3中的任意一个，而是一个带有 hashCode 的对象。<br>asList方法:<br>    public static <T> List<T> asList(T… a)</p>
+<p>注意：参数类型是 T ，根据官方文档的描述，T 是数组元素的 class。<br>如果你对反射技术比较了解的话，那么 class 的含义想必是不言自明。我们知道任何类型的对象都有一个 class 属性，这个属性代表了这个类型本身。原生数据类型，比如 int，short，long等，是没有这个属性的，具有 class 属性的是它们所对应的包装类 Integer，Short，Long。<br>因此，这个错误产生的原因可解释为：asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象——这也正是包装类出现的一个主要原因。当传入一个原生数据类型数组时，asList 的真正得到的参数就不是数组中的元素，而是数组对象本身！此时List 的唯一元素就是这个数组。</p>
+<p>解决方法，使用包装类数组<br>    public class Test {<br>        public static void main(String[] args) {<br>            Integer[] myArray &#x3D; { 1, 2, 3 };<br>            List myList &#x3D; Arrays.asList(myArray);<br>            System.out.println(myList.size());<br>        }<br>    }</p>
+<p>asList</p>
+<p>ArrayList 和 List&lt;&gt;</p>
+<img src="/2022/08/24/Java%E6%95%B0%E7%BB%84/compare.png" class="">
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guo0820/article/details/51030526">https://blog.csdn.net/guo0820/article/details/51030526</a></p>
+<p>Arrays 是一个工具类，有sort,binarySearch,ktoString,aslist等方法</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guo0820/article/details/51030526">https://blog.csdn.net/guo0820/article/details/51030526</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/24/Java%E6%95%B0%E7%BB%84/" data-id="cl7a3n6ax00042wsea3iph2n4" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-postman使用教程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+  <time class="post-time" datetime="2022-08-17T07:53:22.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">postman使用教程</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6913538714060800515/">https://www.toutiao.com/article/6913538714060800515/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6915675572198851075/">https://www.toutiao.com/article/6915675572198851075/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6916875259136475661/">https://www.toutiao.com/article/6916875259136475661/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6828203166245323275/">https://www.toutiao.com/article/6828203166245323275/</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6830616186628080132/">https://www.toutiao.com/article/6830616186628080132/</a></p>
+<p>不同类型的接口请求要注意Content-Type<br>上传文件的表单请求需要用到multipart&#x2F;form-data</p>
+<p>在测试一些接口时，总是需要登录，因为cookie未设置<br>按照 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45047809/article/details/116299139">https://blog.csdn.net/qq_45047809/article/details/116299139</a>  的方式来改变cookie，可是请求总是自动产生cookie</p>
+<p>可以取消自动产生cookie或者设置全局cookie<br><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtTaMg1sMzkwODE0LWJsb2cO0O0O.html">https://www.csdn.net/tags/MtTaMg1sMzkwODE0LWJsb2cO0O0O.html</a><br><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/625605bd3351efabace82ae4.html">https://www.dounaite.com/article/625605bd3351efabace82ae4.html</a></p>
+<p>算了 我前后端都在做，其实postman没那么必要</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cl74507lv000164sef6fsc2j0" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-前后端通信" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -230,9 +374,9 @@ req.send(data);
 
 
   
-    <article id="post-7月25日学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JavaScript学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/25/7%E6%9C%8825%E6%97%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
+    <a href="/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
   <time class="post-time" datetime="2022-07-25T03:34:19.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
     <span class="post-day">25</span>
@@ -247,14 +391,14 @@ req.send(data);
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/25/7%E6%9C%8825%E6%97%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">7月25日学习笔记</a>
+      <a class="article-title" href="/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaScript学习笔记</a>
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/learning-diray/">learning diray</a>
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
   </div>
 
           
@@ -276,7 +420,7 @@ req.send(data);
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/25/7%E6%9C%8825%E6%97%A5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl6x7jmx70001pkse33oufr8h" class="article-share-link">分享</a>
+      <a data-url="https://shenwuyue-xie.github.io/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl7h8etqw0001ucseg49rf6ln" class="article-share-link">分享</a>
       
       
     </footer>
@@ -385,7 +529,8 @@ Signature
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a><br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a></p>
+        <p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a>  这是饿了么的amap<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a>  这是高德地图原生的</p>
+<p><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare">https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare</a></p>
 <p>MyUI <a target="_blank" rel="noopener" href="https://newgateway.gitee.io/my/">https://newgateway.gitee.io/my/</a></p>
 <p>新德汇地图 <a target="_blank" rel="noopener" href="https://gitee.com/newgateway/xdh-map">https://gitee.com/newgateway/xdh-map</a></p>
 <p>Surely Vue <a target="_blank" rel="noopener" href="https://www.surely.cool/doc/guide">https://www.surely.cool/doc/guide</a></p>
@@ -443,6 +588,7 @@ Signature
 <p><a target="_blank" rel="noopener" href="https://zq99299.github.io/java-tutorial/essential/io/fileOps.html#%E9%87%8A%E6%94%BE%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90">https://zq99299.github.io/java-tutorial/essential/io/fileOps.html#%E9%87%8A%E6%94%BE%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90</a><br>Java8教程<br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744">https://www.liaoxuefeng.com/wiki/1252599548343744</a> Java教程</p>
 <p><a target="_blank" rel="noopener" href="https://www.jc2182.com/">https://www.jc2182.com/</a> 一个基础教程</p>
 <p><a target="_blank" rel="noopener" href="https://www.pdai.tech/">https://www.pdai.tech/</a> Java教程</p>
+<p><a target="_blank" rel="noopener" href="https://www.twle.cn/">https://www.twle.cn/</a> 这类教程很多</p>
 <p>B站链接 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1PQ4y1P7hZ?p=4&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1PQ4y1P7hZ?p=4&amp;vd_source=e566061f8d6653c807847b31868afa8b</a></p>
 <p>教程 <a target="_blank" rel="noopener" href="https://markerhub.com/">https://markerhub.com/</a><br><a target="_blank" rel="noopener" href="https://www.zhuawaba.com/post/17">https://www.zhuawaba.com/post/17</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903823966732302">https://juejin.cn/post/6844903823966732302</a></p>
 <p>MyBatis-Plus <a target="_blank" rel="noopener" href="https://baomidou.com/">https://baomidou.com/</a></p>
@@ -692,7 +838,7 @@ $ hexo new &quot;post title with whitespace&quot;
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>17</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>19</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
