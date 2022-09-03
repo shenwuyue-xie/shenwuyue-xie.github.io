@@ -23,8 +23,11 @@
 <meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/computed.png">
 <meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/watch.png">
 <meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/deepwatch.png">
+<meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/watchvscomputed.png">
+<meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/style_class.png">
+<meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/conditionRender.png">
 <meta property="article:published_time" content="2022-08-31T03:12:49.000Z">
-<meta property="article:modified_time" content="2022-09-03T01:14:15.042Z">
+<meta property="article:modified_time" content="2022-09-03T02:45:50.198Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenwuyue-xie.github.io/2022/08/31/vue%E5%AD%A6%E4%B9%A0/attr.png">
@@ -177,7 +180,7 @@ new Vue(&#123;
 <p>Vue键盘事件</p>
 <img src="/2022/08/31/vue%E5%AD%A6%E4%B9%A0/buttonkey.png" class="">
 <p>每个键盘按键都有名字，比如Enter,CapsLock，但是得用caps-lock<br>alt键特殊，必须配合keydown使用,meta键是徽标键<br>修饰符(stop,prevent之类的)可以连续写</p>
-<h2 id="Vue计算属性"><a href="#Vue计算属性" class="headerlink" title="Vue计算属性"></a>Vue计算属性</h2><p>每当data属性发生变化，Vue会重新解析一遍模板，所有用到数据的地方都要更改<br>可以用插值语法和methods实现computed，举个栗子，Vue实例会解析,demo()返回经过加工后的属性，其实插值语法是可以解析表达式的，但是Vue官方并不推荐这种风格，插值语法中尽可能清晰简单<br>所谓的计算属性，就是去计算加工出一个全新的属性，底层使用的是Object.defineProperty方法，Vue实例自行调用<br>计算属性有缓存，而methods属性没有缓存</p>
+<h2 id="Vue计算属性"><a href="#Vue计算属性" class="headerlink" title="Vue计算属性"></a>Vue计算属性</h2><p>每当data属性发生变化，Vue会重新解析一遍模板，所有用到数据的地方都要更改<br>可以用插值语法和methods实现computed，举个栗子，Vue实例会解析插值语法中的函数和表达式demo()并返回经过加工后的属性，其实插值语法是可以解析表达式的，但是Vue官方并不推荐这种风格，插值语法中尽可能清晰简单<br>所谓的计算属性，就是去计算加工出一个全新的属性，底层使用的是Object.defineProperty方法，Vue实例自行调用<br>计算属性有缓存，而methods属性没有缓存</p>
 <img src="/2022/08/31/vue%E5%AD%A6%E4%B9%A0/computed.png" class="">
 
 <pre><code>computed:&#123;
@@ -222,7 +225,16 @@ new Vue(&#123;
     &#125;
 &#125;
 </code></pre>
+<p>计算属性不能开启异步任务</p>
+<img src="/2022/08/31/vue%E5%AD%A6%E4%B9%A0/watchvscomputed.png" class="">
+<p>一般来讲，computed，methods等等中的函数，都是Vue管理的函数，其this被设定为vm，组件实例对象，而这些函数中的函数，如果不是箭头函数，其this变为window</p>
+<h2 id="Vue绑定样式"><a href="#Vue绑定样式" class="headerlink" title="Vue绑定样式"></a>Vue绑定样式</h2>
 
+<p>绑定style同样也有对象写法和数组写法，但是用得不多</p>
+<img src="/2022/08/31/vue%E5%AD%A6%E4%B9%A0/style_class.png" class="">
+
+<h2 id="Vue渲染"><a href="#Vue渲染" class="headerlink" title="Vue渲染"></a>Vue渲染</h2><p>按住alt就能选中多行</p>
+<img src="/2022/08/31/vue%E5%AD%A6%E4%B9%A0/conditionRender.png" class="">
       
     </div>
     <footer class="article-footer">
