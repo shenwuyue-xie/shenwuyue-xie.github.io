@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>项目学习资料 | 神无月</title>
+  <title>VScode调试Vue | 神无月</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="高德地图前端绘制 https:&#x2F;&#x2F;github.com&#x2F;ElemeFE&#x2F;vue-amap  这是饿了么的amaphttps:&#x2F;&#x2F;lbs.amap.com&#x2F;  这是高德地图原生的 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare MyUI https:&#x2F;&#x2F;newgateway.gitee.io&#x2F;my&#x2F; 新德汇地图 https:&#x2F;&#x2F;gitee.co">
+  <meta name="description" content="在写Vue项目时总是遇到各种奇形怪状的坑https:&#x2F;&#x2F;vue.docschina.org&#x2F;v2&#x2F;cookbook&#x2F;debugging-in-vscode.html这个教程有误，没有npm start命令 使用Vscode调试Vuehttps:&#x2F;&#x2F;vuejs.bootcss.com&#x2F;cookbook&#x2F;debugging-in-vscode.html官网教程 https:&#x2F;&#x2F;cli.vuejs.or">
 <meta property="og:type" content="article">
-<meta property="og:title" content="项目学习资料">
-<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/index.html">
+<meta property="og:title" content="VScode调试Vue">
+<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/09/08/VScode%E8%B0%83%E8%AF%95vue/index.html">
 <meta property="og:site_name" content="神无月">
-<meta property="og:description" content="高德地图前端绘制 https:&#x2F;&#x2F;github.com&#x2F;ElemeFE&#x2F;vue-amap  这是饿了么的amaphttps:&#x2F;&#x2F;lbs.amap.com&#x2F;  这是高德地图原生的 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare MyUI https:&#x2F;&#x2F;newgateway.gitee.io&#x2F;my&#x2F; 新德汇地图 https:&#x2F;&#x2F;gitee.co">
+<meta property="og:description" content="在写Vue项目时总是遇到各种奇形怪状的坑https:&#x2F;&#x2F;vue.docschina.org&#x2F;v2&#x2F;cookbook&#x2F;debugging-in-vscode.html这个教程有误，没有npm start命令 使用Vscode调试Vuehttps:&#x2F;&#x2F;vuejs.bootcss.com&#x2F;cookbook&#x2F;debugging-in-vscode.html官网教程 https:&#x2F;&#x2F;cli.vuejs.or">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-18T11:36:24.000Z">
-<meta property="article:modified_time" content="2022-09-06T07:06:20.916Z">
+<meta property="article:published_time" content="2022-09-08T00:53:53.000Z">
+<meta property="article:modified_time" content="2022-09-08T02:30:59.286Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
   
@@ -47,7 +47,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>22</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -73,12 +73,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-项目学习资料" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-VScode调试vue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" class="article-date">
-  <time class="post-time" datetime="2022-07-18T11:36:24.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">18</span>
+    <a href="/2022/09/08/VScode%E8%B0%83%E8%AF%95vue/" class="article-date">
+  <time class="post-time" datetime="2022-09-08T00:53:53.000Z" itemprop="datePublished">
+    <span class="post-month">9月</span><br/>
+    <span class="post-day">08</span>
   </time>
 </a>
    
@@ -90,7 +90,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      项目学习资料
+      VScode调试Vue
     </h1>
   
 
@@ -109,21 +109,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a>  这是饿了么的amap<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a>  这是高德地图原生的</p>
-<p><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare">https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare</a></p>
-<p>MyUI <a target="_blank" rel="noopener" href="https://newgateway.gitee.io/my/">https://newgateway.gitee.io/my/</a></p>
-<p>新德汇地图 <a target="_blank" rel="noopener" href="https://gitee.com/newgateway/xdh-map">https://gitee.com/newgateway/xdh-map</a></p>
-<p>Surely Vue <a target="_blank" rel="noopener" href="https://www.surely.cool/doc/guide">https://www.surely.cool/doc/guide</a></p>
-<p>semantic ui  <a target="_blank" rel="noopener" href="https://semantic-ui.com/elements/icon.html">https://semantic-ui.com/elements/icon.html</a>  </p>
-<p>ant-design vue <a target="_blank" rel="noopener" href="https://www.antdv.com/components/radio-cn">https://www.antdv.com/components/radio-cn</a></p>
-<p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
-<p>打开IDEA，报错 project is not defined,在setup了之后，Java文件左下角出现橙色图标，找寻pom.xml文件，右键点击，add as Maven project，错误解决（在这之前其他许多办法都无法解决）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46207055/article/details/113277609">https://blog.csdn.net/m0_46207055/article/details/113277609</a><br>随时保存备份资料</p>
-<p>npm view *** version 查看包目前发布了哪些版本</p>
+        <p>在写Vue项目时总是遇到各种奇形怪状的坑<br><a target="_blank" rel="noopener" href="https://vue.docschina.org/v2/cookbook/debugging-in-vscode.html">https://vue.docschina.org/v2/cookbook/debugging-in-vscode.html</a><br>这个教程有误，没有npm start命令</p>
+<p>使用Vscode调试Vue<br><a target="_blank" rel="noopener" href="https://vuejs.bootcss.com/cookbook/debugging-in-vscode.html">https://vuejs.bootcss.com/cookbook/debugging-in-vscode.html</a><br>官网教程</p>
+<p><a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/config/">https://cli.vuejs.org/zh/config/</a><br>第一次尝试不成功，可能是是配置项有proxy网络代理，从官网的配置项教程来看，配置项也存在错误<br>配置项也有相应的对象设置等等规范</p>
+<p>不启用代理，在 vue.config.js文件中仅设置configureWebpack<br>    module.exports &#x3D; {<br>        configureWebpack: {<br>            devtool: ‘source-map’<br>        },<br>        lintOnSave: false<br>    }<br>最终成功</p>
+<p>也可以直接使用debugger语句</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" data-id="cl74cp4vb0000jgse9isfcueu" class="article-share-link">分享</a>
+      <a data-url="https://shenwuyue-xie.github.io/2022/09/08/VScode%E8%B0%83%E8%AF%95vue/" data-id="cl7sq53sq0001fsse5s469nem" class="article-share-link">分享</a>
       
       
     </footer>
@@ -132,19 +127,10 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/07/18/JWT%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">上一篇</strong>
-      <div class="article-nav-title">
-        
-          JWT总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/07/18/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/09/01/ES%E7%9A%84%E4%B8%80%E4%BA%9B%E6%96%B0%E7%89%B9%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">学习资料收集</div>
+      <div class="article-nav-title">ES的一些新特性</div>
     </a>
   
 </nav>
@@ -193,7 +179,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>22</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

@@ -3,21 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>vue前端使用高德地图 | 神无月</title>
+  <title>Vue项目进展过程的坑 | 神无月</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue项目结合高德地图 首先在高德地图官网申请key,本项目使用web端https:&#x2F;&#x2F;console.amap.com&#x2F;dev&#x2F;key&#x2F;app 官方web地图开发文档https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare 最简单的方式，使用javascript脚本添加，(JSAPI因为webpack版本原因无法下载loader) https:&#x2F;&#x2F;w">
+  <meta name="description" content="在做Vue项目时总是遇到各种奇形怪状的坑，特此记录，以备后用 高德地图前端绘制 https:&#x2F;&#x2F;github.com&#x2F;ElemeFE&#x2F;vue-amap  这是饿了么的amaphttps:&#x2F;&#x2F;lbs.amap.com&#x2F;  这是高德地图原生的 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare MyUI https:&#x2F;&#x2F;newgateway.gite">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue前端使用高德地图">
-<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/index.html">
+<meta property="og:title" content="Vue项目进展过程的坑">
+<meta property="og:url" content="https://shenwuyue-xie.github.io/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/index.html">
 <meta property="og:site_name" content="神无月">
-<meta property="og:description" content="vue项目结合高德地图 首先在高德地图官网申请key,本项目使用web端https:&#x2F;&#x2F;console.amap.com&#x2F;dev&#x2F;key&#x2F;app 官方web地图开发文档https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare 最简单的方式，使用javascript脚本添加，(JSAPI因为webpack版本原因无法下载loader) https:&#x2F;&#x2F;w">
+<meta property="og:description" content="在做Vue项目时总是遇到各种奇形怪状的坑，特此记录，以备后用 高德地图前端绘制 https:&#x2F;&#x2F;github.com&#x2F;ElemeFE&#x2F;vue-amap  这是饿了么的amaphttps:&#x2F;&#x2F;lbs.amap.com&#x2F;  这是高德地图原生的 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare MyUI https:&#x2F;&#x2F;newgateway.gite">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png">
-<meta property="article:published_time" content="2022-08-31T02:31:53.000Z">
-<meta property="article:modified_time" content="2022-09-07T11:27:36.602Z">
+<meta property="article:published_time" content="2022-07-18T11:36:24.000Z">
+<meta property="article:modified_time" content="2022-09-08T05:36:29.710Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png">
   
     <link rel="alternate" href="/atom.xml" title="神无月" type="application/atom+xml">
   
@@ -75,12 +73,12 @@
   </div>
 </div>
 
-        <section id="main"><article id="post-Vue前端使用高德地图" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Vue项目进展过程的坑" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" class="article-date">
-  <time class="post-time" datetime="2022-08-31T02:31:53.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">31</span>
+    <a href="/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/" class="article-date">
+  <time class="post-time" datetime="2022-07-18T11:36:24.000Z" itemprop="datePublished">
+    <span class="post-month">7月</span><br/>
+    <span class="post-day">18</span>
   </time>
 </a>
    
@@ -92,14 +90,14 @@
         
   
     <h1 class="article-title" itemprop="name">
-      vue前端使用高德地图
+      Vue项目进展过程的坑
     </h1>
   
 
         <div>
           
   <div class="article-category">
-    <a class="article-category-link" href="/categories/vue/">vue</a>
+    <a class="article-category-link" href="/categories/Vue/">Vue</a>
   </div>
 
           
@@ -111,48 +109,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>vue项目结合高德地图</p>
-<p>首先在高德地图官网申请key,本项目使用web端<br><a target="_blank" rel="noopener" href="https://console.amap.com/dev/key/app">https://console.amap.com/dev/key/app</a></p>
-<p>官方web地图开发文档<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare">https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare</a></p>
-<p>最简单的方式，使用javascript脚本添加，(JSAPI因为webpack版本原因无法下载loader)</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1U44y1W77D?p=29&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1U44y1W77D?p=29&amp;vd_source=e566061f8d6653c807847b31868afa8b</a><br>这个视频用最简单的方式使用了高德地图</p>
-<p><a target="_blank" rel="noopener" href="http://vue-gaode.rxshc.com/">http://vue-gaode.rxshc.com/</a> 原生高德API的一个教程</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102882843">https://zhuanlan.zhihu.com/p/102882843</a> 介绍饿了么将高德地图封装成的一个npm包，用于vue开发</p>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6920103004259500045">https://juejin.cn/post/6920103004259500045</a> 高德地图API的一个引入使用总结</p>
-<p>在public文件夹下的index.html文件中添加</p>
-<script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=你申请的Key"></script>
-<p>也就引入了高德地图组件</p>
-<p>地图需要一个div作为容器</p>
-<pre><code>&lt;template&gt;
-    &lt;div id = &quot;container&quot; style=&quot;width: 100% height: 100%&quot;&gt;&lt;/div&gt;
-&lt;/template&gt;
-</code></pre>
-<p>地图组件需要挂载在mounted下</p>
-<pre><code>mounted() &#123;
-    var map = new AMap.Map(&quot;container&quot;, &#123;
-        zoom: 13,
-        // center: [116.473195,39.973253],
-        // resizeEnable: true,
-        // mapStyle: &#39;amap://styles/whitesmoke&#39;
-    &#125;)
-    var marker = new Amap.marker(&#123;
-        position: new Amap.LngLat(116.39, 39.9),
-        title: &#39;北京&#39;
-    &#125;);
-
-    map.add(marker);
-&#125;,
-</code></pre>
-<p>在路由上挂载了这个map.vue页面，运行后产生一个地图，同时页面中央是北京</p>
-<p>1.在 HTML 里引入 JS 外链文件的做法和 Vue 工具链中常见的引入&#x2F;构建方式（如 webpack）不太搭调<br>2.需要在 Vue 组件的 mounted() 里通过 $refs 拿到容器 DOM 元素，再去创建地图，再在 Vue 组件 beforeDestroyed() 里销毁刚才创建的地图<br>3.当你更新了数据时，需要手工调用地图、地图元素的各种 set 方法来同步修改它们的属性</p>
-<img src="/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png" class="">
-<p>尝试使用JSAPI，npm i @amap&#x2F;amap-jsapi-loader –save 命令报错，似乎是webpack版本有误<br>可能需要重新搭建，升级webpack</p>
+        <p>在做Vue项目时总是遇到各种奇形怪状的坑，特此记录，以备后用</p>
+<p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a>  这是饿了么的amap<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a>  这是高德地图原生的</p>
+<p><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare">https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare</a></p>
+<p>MyUI <a target="_blank" rel="noopener" href="https://newgateway.gitee.io/my/">https://newgateway.gitee.io/my/</a></p>
+<p>新德汇地图 <a target="_blank" rel="noopener" href="https://gitee.com/newgateway/xdh-map">https://gitee.com/newgateway/xdh-map</a></p>
+<p>Surely Vue <a target="_blank" rel="noopener" href="https://www.surely.cool/doc/guide">https://www.surely.cool/doc/guide</a></p>
+<p>semantic ui  <a target="_blank" rel="noopener" href="https://semantic-ui.com/elements/icon.html">https://semantic-ui.com/elements/icon.html</a>  </p>
+<p>ant-design vue <a target="_blank" rel="noopener" href="https://www.antdv.com/components/radio-cn">https://www.antdv.com/components/radio-cn</a></p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>npm view *** version 查看包目前发布了哪些版本</p>
+<p>使用JSAPI Loader加载高德地图后，window下会出现AMap,AMapUI,Loca等属性</p>
+<h2 id="开发遇到的问题"><a href="#开发遇到的问题" class="headerlink" title="开发遇到的问题"></a>开发遇到的问题</h2><p>取数据时，页数设置，取到了不同数据，测试一下拿到了想要的数据</p>
 <p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
+<p>打开IDEA，报错 project is not defined,在setup了之后，Java文件左下角出现橙色图标，找寻pom.xml文件，右键点击，add as Maven project，错误解决（在这之前其他许多办法都无法解决）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46207055/article/details/113277609">https://blog.csdn.net/m0_46207055/article/details/113277609</a><br>随时保存备份资料</p>
+<p>使用地图时无法使用JSAPI Loader，具体情形在 vue前端使用高德地图 中。</p>
+<p>Vue在methods中的方法无法直接获取data属性中的Array类型属性，如果直接根据索引得到的是[__ob__: Observer]</p>
+<p>在网上搜索方法<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79091215">https://zhuanlan.zhihu.com/p/79091215</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouzuoluo/article/details/103067637">https://blog.csdn.net/zhouzuoluo/article/details/103067637</a><br><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html">https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html</a></p>
+<p>以上教程说明 <em>ob</em>: Observer是 Vue 对数据监控添加的属性，不可枚举和遍历</p>
+<pre><code>JSON.parse(JSON.stringify(list))
+Object.assign(&#123;&#125;,this.list)
+let newarr = Object.assign([],this.data).map(item =&gt; &#123;return Object.assign(&#123;&#125;,item)&#125;)
+</code></pre>
+<p>使用以上三种方法发现返回数据为空</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenchangwenliu/article/details/121954177">https://blog.csdn.net/wenchangwenliu/article/details/121954177</a><br>上面这个教程指出<br>项目中数据从后端而来，最好使用success回调函数进行处理，我预估和我遇到的问题没有关系，因为我获取数据的函数在created阶段，打印数据也显示data中已经有数据，而使用数据在mounted阶段。</p>
+<p>但是在回调函数中使用数据是个似乎可行的解决方式</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ppphill_C/article/details/121066257">https://blog.csdn.net/Ppphill_C/article/details/121066257</a> 这个教程遇到了同样的问题，并且使用JSON.parse(JSON.stringify(数组))数组也为空，但是console.log()能够得到数据，而我在使用数据的函数中甚至console出来的还是空</p>
+<p>在调试的过程中(使用console.log())，发现在created使用axios获得数据并且放在data属性中，在回调阶段还是能得到数据，不清楚是created和mounted这类不同阶段引起的变化还是因为data属性的特性</p>
+<p>跨域问题<br>请求从浏览器发出，到达服务器，服务器响应，浏览器接收发现跨域，不交付数据<br>同源策略：协议名，主机名，端口号必须一致</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/" data-id="cl7sq53sk0000fssecrgf0k7y" class="article-share-link">分享</a>
+      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/" data-id="cl7sq53su0003fssea0au9ihl" class="article-share-link">分享</a>
       
       
     </footer>
@@ -161,19 +149,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2022/08/31/Vue%E5%AD%A6%E4%B9%A0/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/07/18/JWT%E6%80%BB%E7%BB%93/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">上一篇</strong>
       <div class="article-nav-title">
         
-          Vue学习
+          JWT总结
         
       </div>
     </a>
   
   
-    <a href="/2022/08/29/Java%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2022/07/18/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">下一篇</strong>
-      <div class="article-nav-title">Java依赖注入和控制反转</div>
+      <div class="article-nav-title">学习资料收集</div>
     </a>
   
 </nav>

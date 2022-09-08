@@ -45,7 +45,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>22</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -72,6 +72,74 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-ConcurrentLinkedQueue和ThreadPoolExecutor" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" class="article-date">
+  <time class="post-time" datetime="2022-08-26T01:56:08.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/">ConcurrentLinkedQueue和ThreadPoolExecutor</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="ConcurrentLinkedQueue"><a href="#ConcurrentLinkedQueue" class="headerlink" title="ConcurrentLinkedQueue"></a>ConcurrentLinkedQueue</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38293564/article/details/80798310">https://blog.csdn.net/qq_38293564/article/details/80798310</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0">https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0</a></p>
+<p>线程安全的队列实现方式有两种，阻塞算法和非阻塞算法，使用阻塞算法的队列可以用一个锁（入队和出队用同一把锁）或两个锁（入队和出队用不同的锁）等方式来实现，而非阻塞的实现方式则可以使用循环CAS的方式来实现。</p>
+<p>ConcurerntLinkedQueue以非阻塞方式实现</p>
+<p>ConcurerntLinkedQueue一个基于链接节点的无界线程安全队列。此队列按照 FIFO(先进先出)原则对元素进行排序。队列的头部是队列中时间最长的元素。队列的尾部 是队列中时间最短的元素。新的元素插入到队列的尾部，队列获取操作从队列头部获得元素。当多个线程共享访问一个公共 collection 时，ConcurrentLinkedQueue是一个恰当的选择。此队列不允许使用null元素</p>
+<p>ConcurrentLinkedQueue的数据结构与LinkedBlockingQueue的数据结构相同，都是使用的链表结构，包含一个头节点和一个尾节点</p>
+<p>内部类Node<br>    private static class Node<E>{<br>        …<br>    }<br>Node类表示链表结点，用于存放元素，包含item域和next域，item域表示元素，next域表示下一个结点，其利用反射机制和CAS机制来更新item域和next域，保证原子性。</p>
+<p>类属性中包含了head域和tail域，表示链表的头节点和尾结点，同时，ConcurrentLinkedQueue也使用了反射机制和CAS机制来更新头节点和尾结点，保证原子性。</p>
+<p>offer()函数用于将指定元素插入此队列的尾部</p>
+<p>poll()函数用于获取并移除此队列的头，如果此队列为空，则返回null</p>
+<p>remove()函数用于从队列中移除指定元素的单个实例(如果存在)。其中，会调用到first函数和succ函数</p>
+<p>size()函数用于返回ConcurrenLinkedQueue的大小，从第一个存活的结点(first)开始，往后遍历链表，当结点的item域不为null时，增加计数，之后返回大小。</p>
+<p>线程不会因为ConcurrentLinkedQueue队列为空而等待，而是直接返回null，所以当实现队列不空时，等待时，则需要用户自己实现等待逻辑。<br>详细查看<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0">https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0</a></p>
+<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c41e942bcd64">https://www.jianshu.com/p/c41e942bcd64</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f030aa5d7a28">https://www.jianshu.com/p/f030aa5d7a28</a><br><a target="_blank" rel="noopener" href="https://www.twle.cn/c/yufei/javatm/javatm-basic-thread-pool2.html">https://www.twle.cn/c/yufei/javatm/javatm-basic-thread-pool2.html</a></p>
+<p>concurrent包</p>
+<p>java.util.concurrent.locks.ReentrantLock</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" data-id="cl7h8etqp0000ucseeet265na" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-项目流程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -681,9 +749,9 @@ Signature
 
 
   
-    <article id="post-项目学习资料" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Vue项目进展过程的坑" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" class="article-date">
+    <a href="/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/" class="article-date">
   <time class="post-time" datetime="2022-07-18T11:36:24.000Z" itemprop="datePublished">
     <span class="post-month">7月</span><br/>
     <span class="post-day">18</span>
@@ -698,7 +766,7 @@ Signature
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/">项目学习资料</a>
+      <a class="article-title" href="/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/">Vue项目进展过程的坑</a>
     </h1>
   
 
@@ -717,103 +785,38 @@ Signature
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a>  这是饿了么的amap<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a>  这是高德地图原生的</p>
+        <p>在做Vue项目时总是遇到各种奇形怪状的坑，特此记录，以备后用</p>
+<p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a>  这是饿了么的amap<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a>  这是高德地图原生的</p>
 <p><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare">https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare</a></p>
 <p>MyUI <a target="_blank" rel="noopener" href="https://newgateway.gitee.io/my/">https://newgateway.gitee.io/my/</a></p>
 <p>新德汇地图 <a target="_blank" rel="noopener" href="https://gitee.com/newgateway/xdh-map">https://gitee.com/newgateway/xdh-map</a></p>
 <p>Surely Vue <a target="_blank" rel="noopener" href="https://www.surely.cool/doc/guide">https://www.surely.cool/doc/guide</a></p>
 <p>semantic ui  <a target="_blank" rel="noopener" href="https://semantic-ui.com/elements/icon.html">https://semantic-ui.com/elements/icon.html</a>  </p>
 <p>ant-design vue <a target="_blank" rel="noopener" href="https://www.antdv.com/components/radio-cn">https://www.antdv.com/components/radio-cn</a></p>
+<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>npm view *** version 查看包目前发布了哪些版本</p>
+<p>使用JSAPI Loader加载高德地图后，window下会出现AMap,AMapUI,Loca等属性</p>
+<h2 id="开发遇到的问题"><a href="#开发遇到的问题" class="headerlink" title="开发遇到的问题"></a>开发遇到的问题</h2><p>取数据时，页数设置，取到了不同数据，测试一下拿到了想要的数据</p>
 <p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
 <p>打开IDEA，报错 project is not defined,在setup了之后，Java文件左下角出现橙色图标，找寻pom.xml文件，右键点击，add as Maven project，错误解决（在这之前其他许多办法都无法解决）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46207055/article/details/113277609">https://blog.csdn.net/m0_46207055/article/details/113277609</a><br>随时保存备份资料</p>
-<p>npm view *** version 查看包目前发布了哪些版本</p>
+<p>使用地图时无法使用JSAPI Loader，具体情形在 vue前端使用高德地图 中。</p>
+<p>Vue在methods中的方法无法直接获取data属性中的Array类型属性，如果直接根据索引得到的是[__ob__: Observer]</p>
+<p>在网上搜索方法<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79091215">https://zhuanlan.zhihu.com/p/79091215</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouzuoluo/article/details/103067637">https://blog.csdn.net/zhouzuoluo/article/details/103067637</a><br><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html">https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html</a></p>
+<p>以上教程说明 <em>ob</em>: Observer是 Vue 对数据监控添加的属性，不可枚举和遍历</p>
+<pre><code>JSON.parse(JSON.stringify(list))
+Object.assign(&#123;&#125;,this.list)
+let newarr = Object.assign([],this.data).map(item =&gt; &#123;return Object.assign(&#123;&#125;,item)&#125;)
+</code></pre>
+<p>使用以上三种方法发现返回数据为空</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenchangwenliu/article/details/121954177">https://blog.csdn.net/wenchangwenliu/article/details/121954177</a><br>上面这个教程指出<br>项目中数据从后端而来，最好使用success回调函数进行处理，我预估和我遇到的问题没有关系，因为我获取数据的函数在created阶段，打印数据也显示data中已经有数据，而使用数据在mounted阶段。</p>
+<p>但是在回调函数中使用数据是个似乎可行的解决方式</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ppphill_C/article/details/121066257">https://blog.csdn.net/Ppphill_C/article/details/121066257</a> 这个教程遇到了同样的问题，并且使用JSON.parse(JSON.stringify(数组))数组也为空，但是console.log()能够得到数据，而我在使用数据的函数中甚至console出来的还是空</p>
+<p>在调试的过程中(使用console.log())，发现在created使用axios获得数据并且放在data属性中，在回调阶段还是能得到数据，不清楚是created和mounted这类不同阶段引起的变化还是因为data属性的特性</p>
+<p>跨域问题<br>请求从浏览器发出，到达服务器，服务器响应，浏览器接收发现跨域，不交付数据<br>同源策略：协议名，主机名，端口号必须一致</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/%E9%A1%B9%E7%9B%AE%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" data-id="cl74cp4vb0000jgse9isfcueu" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-学习资料收集" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/18/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/" class="article-date">
-  <time class="post-time" datetime="2022-07-18T07:39:36.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">18</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/18/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/">学习资料收集</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Java 基础、Servlet、JDBC、Maven、Spring、Spring MVC 和 MyBatis </p>
-<p><a target="_blank" rel="noopener" href="https://zq99299.github.io/java-tutorial/essential/io/fileOps.html#%E9%87%8A%E6%94%BE%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90">https://zq99299.github.io/java-tutorial/essential/io/fileOps.html#%E9%87%8A%E6%94%BE%E7%B3%BB%E7%BB%9F%E8%B5%84%E6%BA%90</a><br>Java8教程<br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744">https://www.liaoxuefeng.com/wiki/1252599548343744</a> Java教程</p>
-<p><a target="_blank" rel="noopener" href="https://www.jc2182.com/">https://www.jc2182.com/</a> 一个基础教程</p>
-<p><a target="_blank" rel="noopener" href="https://www.pdai.tech/">https://www.pdai.tech/</a> Java教程</p>
-<p><a target="_blank" rel="noopener" href="https://www.twle.cn/">https://www.twle.cn/</a> 这类教程很多</p>
-<p>B站链接 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1PQ4y1P7hZ?p=4&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1PQ4y1P7hZ?p=4&amp;vd_source=e566061f8d6653c807847b31868afa8b</a></p>
-<p>教程 <a target="_blank" rel="noopener" href="https://markerhub.com/">https://markerhub.com/</a><br><a target="_blank" rel="noopener" href="https://www.zhuawaba.com/post/17">https://www.zhuawaba.com/post/17</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903823966732302">https://juejin.cn/post/6844903823966732302</a></p>
-<p>MyBatis-Plus <a target="_blank" rel="noopener" href="https://baomidou.com/">https://baomidou.com/</a></p>
-<p>学习JWT <a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html">http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/86937325">https://zhuanlan.zhihu.com/p/86937325</a></p>
-<p>github的mall项目 spring+mybatis</p>
-<p><a target="_blank" rel="noopener" href="https://github.com/macrozheng/mall">https://github.com/macrozheng/mall</a><br>以及 <a target="_blank" rel="noopener" href="https://github.com/macrozheng/mall-learning">https://github.com/macrozheng/mall-learning</a></p>
-<p>B站后台管理项目<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QU4y1E7qo?spm_id_from=333.337.search-card.all.click&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1QU4y1E7qo?spm_id_from=333.337.search-card.all.click&amp;vd_source=e566061f8d6653c807847b31868afa8b</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1U44y1W77D/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1U44y1W77D/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=e566061f8d6653c807847b31868afa8b</a></p>
-<p>vue 项目实战 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Vf4y1T7bw?spm_id_from=333.337.search-card.all.click&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1Vf4y1T7bw?spm_id_from=333.337.search-card.all.click&amp;vd_source=e566061f8d6653c807847b31868afa8b</a></p>
-<p>Javaweb 学习<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1AS4y177xJ?spm_id_from=333.337.search-card.all.click&amp;vd_source=e566061f8d6653c807847b31868afa8b">https://www.bilibili.com/video/BV1AS4y177xJ?spm_id_from=333.337.search-card.all.click&amp;vd_source=e566061f8d6653c807847b31868afa8b</a></p>
-<p>javascript 学习<br><a target="_blank" rel="noopener" href="https://zh.javascript.info/">https://zh.javascript.info/</a></p>
-<p>spring 学习 <a target="_blank" rel="noopener" href="https://blog.csdn.net/dear_Alice_moon/article/details/83476784">https://blog.csdn.net/dear_Alice_moon/article/details/83476784</a></p>
-<p>Maven <a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1252599548343744/1309301146648610">https://www.liaoxuefeng.com/wiki/1252599548343744/1309301146648610</a></p>
-<p>webpack <a target="_blank" rel="noopener" href="https://www.webpackjs.com/">https://www.webpackjs.com/</a></p>
-<p>java 枚举类型 <a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/71333103">https://blog.csdn.net/javazejian/article/details/71333103</a></p>
-<p>注解类型 <a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/71860633">https://blog.csdn.net/javazejian/article/details/71860633</a></p>
-<p>Java类型信息(Class对象)与反射机制 <a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/70768369">https://blog.csdn.net/javazejian/article/details/70768369</a></p>
-<p>深入理解Java <a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/category_6190120.html">https://blog.csdn.net/javazejian/category_6190120.html</a></p>
-<p>spring 理解 <a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904081857708045">https://juejin.cn/post/6844904081857708045</a></p>
-<p><a target="_blank" rel="noopener" href="https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-introduction">https://docs.spring.io/spring-framework/docs/current/reference/html/core.html#beans-introduction</a></p>
-<p>vue.js 调试方式 </p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/high32/article/details/116570570">https://blog.csdn.net/high32/article/details/116570570</a></p>
-<p><a target="_blank" rel="noopener" href="https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html">https://cn.vuejs.org/v2/cookbook/debugging-in-vscode.html</a></p>
-<p>vue CLI 以及 vue-devtools <a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/guide/">https://cli.vuejs.org/zh/guide/</a> vuex vue-router</p>
-<p>npm <a target="_blank" rel="noopener" href="https://docs.npmjs.com/getting-started">https://docs.npmjs.com/getting-started</a></p>
-<p>mapper mybatis xml</p>
-<p>vue <a target="_blank" rel="noopener" href="https://github.com/bailicangdu/vue2-elm">https://github.com/bailicangdu/vue2-elm</a></p>
-<p>element-ui 以及 ant-design</p>
-<p>有时间把个人技术博客完善一下</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%94%B6%E9%9B%86/" data-id="cl6x7jmxf0003pkse39xe7kqx" class="article-share-link">分享</a>
+      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/" data-id="cl7sq53su0003fssea0au9ihl" class="article-share-link">分享</a>
       
       
     </footer>
@@ -869,7 +872,7 @@ Signature
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>22</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
