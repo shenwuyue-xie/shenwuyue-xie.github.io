@@ -45,7 +45,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -72,6 +72,148 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-js-jq实现按钮选择文件并显示在文本框" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" class="article-date">
+  <time class="post-time" datetime="2022-08-26T07:02:16.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/">js,jq实现按钮选择文件并显示在文本框</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这个功能很久都没有实现，几乎查到的所有网上教程都是错的</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_39298625/article/details/106189630">https://blog.csdn.net/baidu_39298625/article/details/106189630</a></p>
+<p>这个方法总体而言是，点击按钮，实时产生一个不可视的input-file，并且点击，</p>
+<p>也许是JS版本问题,查看IDEA的JavaScript版本，为ECMAScript 5.1，无法使用let,可能也没有箭头函数，更改为ECMAScript6 版本<br>即常见的从ES5规范到ES6规范</p>
+<p>ECMAscript和JavaScript的关系<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69171948">https://zhuanlan.zhihu.com/p/69171948</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/373086344">https://zhuanlan.zhihu.com/p/373086344</a></p>
+<p>JavaScript实现包含三个方面<br>    1. ECMAscript(语言核心功能基于ES规范)<br>    2. DOM— js需要支持对DOM的维护,通过document,element对象实现.这些都是在ES中没有的.<br>    3. BOM— js需要支持对BOM的维护,通过window对象实现.这些都是在ES中没有的.</p>
+<p>关于webkitRelativePath<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/webkitRelativePath">https://developer.mozilla.org/zh-CN/docs/Web/API/File/webkitRelativePath</a></p>
+<p>lay ui 和 semantic ui, element ui 类似</p>
+<p>报 post 403错误，并且后端无法打断点调试，使用console.log，发现甚至无法进入函数体中</p>
+<img src="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/error1.png" class="">
+<pre><code>403（禁止）状态码表明服务端已经明白请求，但是拒绝授权...如果请求中提供了授权的身份认证，服务端认为它们不足以授予访问权限。
+</code></pre>
+<p>很离谱的错误，我甚至无法定位原因，只能猜测是浏览器认定没有权限选择文件</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45455554/article/details/119024078">https://blog.csdn.net/qq_45455554/article/details/119024078</a><br>在解决这个问题的时候，这篇博客代表了大部门答案的逻辑，就是用Button引起一个type为file的input按钮的点击，但是实际测试无效果<br>input-file 设置 Style &#x3D; “display: none “ 或者 “visibility:hidden”<br>还是报403错误？之前不是这种错误，之前是无法显示到文本框中<br>可能需要搜寻一些IDEA调试前端代码的资料</p>
+<p>有可能是表单类型的原因，现在要上传文件了</p>
+<p>实际上可能是版本原因，也不知道什么原因，甚至连 checkbox中的 onclick &#x3D; “return false;”都无法完成预定功能，无论是JS写法还是jquery写法。</p>
+<p>这已经是第二次，网上查到的资料无法实现预定功能 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" data-id="cl7fk5tj10003zkse3q63d6ll" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Java反射机制" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="article-date">
+  <time class="post-time" datetime="2022-08-26T05:45:50.000Z" itemprop="datePublished">
+    <span class="post-month">8月</span><br/>
+    <span class="post-day">26</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java反射机制</a>
+    </h1>
+  
+
+        <div>
+          
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/70768369">https://blog.csdn.net/javazejian/article/details/70768369</a></p>
+<h1 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a>Class 类</h1><p>反射机制允许我们在运行时发现和使用类型的信息,在Java中用来表示运行时类型信息的对应类就是Class类，Class类也是一个实实在在的类，存在于JDK的java.lang包中。</p>
+<p>编译时，每一个自定义类，都有对应的Class对象，并且该对象保存在同名.class文件里（编译后的字节码文件保存的就是Class对象），，当我们new一个新对象或者引用静态成员变量时，Java虚拟机(JVM)中的类加载器子系统会将对应Class对象加载到JVM中，然后JVM再根据这个类型信息相关的Class对象创建我们需要实例对象或者提供静态变量的引用值。需要特别注意的是，手动编写的每个class类，无论创建多少个实例对象，在JVM中都只有一个Class对象，即在内存中每个类有且只有一个相对应的Class对象。</p>
+<p>Class类只存私有构造函数，因此对应Class对象只能有JVM创建和加载，Class类的对象作用是运行时提供或获得某个对象的类型信息，这点对于反射技术很重要。</p>
+<h1 id="获取Class类"><a href="#获取Class类" class="headerlink" title="获取Class类"></a>获取Class类</h1><p>获取Class对象引用的方式3种，通过继承自Object类的getClass方法，Class类的静态方法forName以及字面常量的方式”.class”。</p>
+<p>其中实例类的getClass方法和Class类的静态方法forName都将会触发类的初始化阶段，而字面常量获取Class对象的方式则不会触发初始化。</p>
+<p>初始化是类加载的最后一个阶段，也就是说完成这个阶段后类也就加载到内存中(Class对象在加载阶段已被创建)，此时可以对类进行各种必要的操作了（如new对象，调用静态成员等），注意在这个阶段，才真正开始执行类中定义的Java程序代码或者字节码。</p>
+<p>使用泛型可以约束声明指定类型的对象，而Class&lt;?&gt;优于直接使用Class，extends关键字可以告知编译器接收某个类型的子类</p>
+<pre><code>Class&lt;? extends Number&gt; clazz = Integer.class;
+clazz = double.class;
+clazz = Number.class;
+</code></pre>
+<p>向Class引用添加泛型约束仅仅是为了提供编译期类型的检查从而避免将错误延续到运行时期。</p>
+<p>可以使用利用Class对象的cast方法进行类型强制转换<br>instanceof 和 isInstance 用于判定对象类型是否正确</p>
+<p><strong>反射机制</strong></p>
+<p>反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性，这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
+<p>Constructor类存在于反射包(java.lang.reflect)中，反映的是Class 对象所表示的类的构造方法。</p>
+<p>Field 提供有关类或接口的单个字段的信息，以及对它的动态访问权限。反射的字段可能是一个类（静态）字段或实例字段。</p>
+<p>Method 提供关于类或接口上单独某个方法（以及如何访问该方法）的信息，所反映的方法可能是类方法或实例方法（包括抽象方法）。</p>
+<p>以上三者，都可以通过Class类的方法获得其对象</p>
+<p>在Java的java.lang.reflect包中存在着一个可以动态操作数组的类，Array，它提供了动态创建和访问 Java 数组的方法。Array 允许在执行 get 或 set 操作进行取值和赋值。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-id="cl7a3n6av00032wse4yzm2gub" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-ConcurrentLinkedQueue和ThreadPoolExecutor" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -614,6 +756,9 @@ req.send(data);
 <img src="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/RequestParam_success.png" class="">
 <p>使用Map接收,enctype为multipart&#x2F;form-data依然可以成功(在上传文件时需要添加)</p>
 <p>总结  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/dw3306/p/13691917.html">https://www.cnblogs.com/dw3306/p/13691917.html</a><br><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15304202/3105387">https://blog.51cto.com/u_15304202/3105387</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549149">https://cloud.tencent.com/developer/article/1549149</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44543508/article/details/101026720">https://blog.csdn.net/qq_44543508/article/details/101026720</a></p>
+<p>后端在接收Array类型的数据时出现问题<br>无论使用FormData对象接收，还是RequestParam注解，String类型的数据都可以，但是数组不行</p>
+<p>使用了最简单的方式，在前端，将数组数据改为字符串，使用JSON.stringify()和contentType: ‘application&#x2F;json’,将数据从DOM中一一提出来发送过去，在后端用@RequestBody Map&lt;String,String&gt; map获得这些数据，然后得到的字符串转换为数组。这种方式无法传输文件</p>
+<p>提交的文件需要判定是否为dat格式吗</p>
 
       
     </div>
@@ -666,157 +811,72 @@ req.send(data);
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>javascript 装饰器和转发</p>
+        <p>标记语言如HTML并不向计算机发出指令，而是被动地被读取，常用于格式化和链接</p>
+<p>javascript 装饰器和转发</p>
 <p><a target="_blank" rel="noopener" href="https://zh.javascript.info/call-apply-decorators">https://zh.javascript.info/call-apply-decorators</a><br>教程中的上下文基本都是指得对象本身，即函数的this指向何处<br>python的函数默认带有this<br>装饰器就是以函数入口为参数的函数</p>
 <p><a target="_blank" rel="noopener" href="https://zh.javascript.info/">https://zh.javascript.info/</a><br>这个要多看，常看常新</p>
 <p>不只是看懂会做会写，这样无非是按照规律复制粘贴罢了<br>重要的是明白背后的原理，为什么这么做，有什么好处，意义在哪里，逻辑是什么</p>
 <p>看懂技术思想，为了具体实现做了什么</p>
 <p>按钮控件将文件路径传入文本框<br>网上查到的资料有问题</p>
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><p>脚本加载往往是异步的，这意味着会出现因为脚本尚未加载完毕，使用函数中的脚本报错的情况。</p>
+<pre><code>loadScript(&#39;/my/script.js&#39;); // 这个脚本有 &quot;function newFunction() &#123;…&#125;&quot;
+
+newFunction(); // 没有这个函数！
+</code></pre>
+<p>要使用脚本，可以使用回调函数，并使用onload()等待脚本加载完毕，以及使用onerror处理错误情况</p>
+<pre><code>function loadScript(src, callback) &#123;
+let script = document.createElement(&#39;script&#39;);
+script.src = src;
+
+script.onload = () =&gt; callback(null, script);
+script.onerror = () =&gt; callback(new Error(`Script load error for $&#123;src&#125;`));
+
+document.head.append(script);
+&#125;
+</code></pre>
+<p>但是以上方法在回调层数增多时会出现回调地狱的情形（层层嵌套，代码难以维护）</p>
+<pre><code>loadScript(&#39;1.js&#39;, function(error, script) &#123;
+
+if (error) &#123;
+    handleError(error);
+&#125; else &#123;
+    // ...
+    loadScript(&#39;2.js&#39;, function(error, script) &#123;
+    if (error) &#123;
+        handleError(error);
+    &#125; else &#123;
+        // ...
+        loadScript(&#39;3.js&#39;, function(error, script) &#123;
+        if (error) &#123;
+            handleError(error);
+        &#125; else &#123;
+            // ...加载完所有脚本后继续 (*)
+        &#125;
+        &#125;);
+
+    &#125;
+    &#125;);
+&#125;
+&#125;);
+</code></pre>
+<p>可以使用Promise更简洁更完备地完成上述功能</p>
+<pre><code>let promise = new Promise(function(resolve, reject) &#123;
+// executor（生产者，消费者）
+&#125;);
+</code></pre>
+<p>executor 会自动运行并尝试执行一项工作。尝试结束后，如果成功则调用 resolve，如果出现 error 则调用 reject。<br>由 new Promise 构造器返回的 promise 对象具有以下内部属性：<br>state —— 最初是 “pending”，然后在 resolve 被调用时变为 “fulfilled”，或者在 reject 被调用时变为 “rejected”。<br>result —— 最初是 undefined，然后在 resolve(value) 被调用时变为 value，或者在 reject(error) 被调用时变为 error。</p>
+<p>executor 只能调用一个 resolve 或一个 reject。任何状态的更改都是最终的。<br>所有其他的再对 resolve 和 reject 的调用都会被忽略</p>
+<p>使用.then语法<br>    promise.then(<br>    function(result) { &#x2F;* handle a successful result <em>&#x2F; },<br>    function(error) { &#x2F;</em> handle an error *&#x2F; }<br>    );<br>可以使用catch来处理error,而.catch(f) 调用是 .then(null, f) 的完全的模拟，它只是一个简写形式。</p>
+<p>finally类似于try catch finally </p>
+<p>finally 处理程序（handler）没有参数。在finally中，我们不知道promise是否成功。没关系，因为我们的任务通常是执行“常规”的完成程序（finalizing procedures）。<br>请看上面的例子：如你所见，finally处理程序没有参数，promise的结果由下一个处理程序处理。<br>finally处理程序将结果或 error“传递”给下一个合适的处理程序。</p>
+<p>不断使用.then构建Promise链，每个对.then的调用都会返回了一个新的promise<br>promise常用于网络请求，也可以结合fetch</p>
+<p>绑定事件函数的几个方法，以及不同之处</p>
+<h2 id="绑定事件函数"><a href="#绑定事件函数" class="headerlink" title="绑定事件函数"></a>绑定事件函数</h2><h2 id="JavaScript列表"><a href="#JavaScript列表" class="headerlink" title="JavaScript列表"></a>JavaScript列表</h2><p>可以使用Array和[]来声明列表，直接给空列表赋值会改变列表长度并添加相应位置的元素，不会报错</p>
 
       
     </div>
     <footer class="article-footer">
       <a data-url="https://shenwuyue-xie.github.io/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl7h8etqw0001ucseg49rf6ln" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-JWT总结" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/18/JWT%E6%80%BB%E7%BB%93/" class="article-date">
-  <time class="post-time" datetime="2022-07-18T11:38:46.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">18</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/18/JWT%E6%80%BB%E7%BB%93/">JWT总结</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html">http://www.ruanyifeng.com/blog/2018/07/json_web_token-tutorial.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/86937325">https://zhuanlan.zhihu.com/p/86937325</a></p>
-<p>主要用于授权认证和信息交换</p>
-<p>分为三个部分,每个部分用”.”分隔，即 xxx.yyy.zzz</p>
-<pre><code>Header
-Payload
-Signature
-</code></pre>
-<p>将基于服务器的身份认证转换为基于客户端信息的认证方式，减轻了服务器的工作量，并且容易跨域认证，可以不用考虑多个服务器之间分享session信息的问题</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/JWT%E6%80%BB%E7%BB%93/" data-id="cl6x7jmxn0005pksedkq1d2h5" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Vue项目进展过程的坑" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/" class="article-date">
-  <time class="post-time" datetime="2022-07-18T11:36:24.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">18</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/">Vue项目进展过程的坑</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Vue/">Vue</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在做Vue项目时总是遇到各种奇形怪状的坑，特此记录，以备后用</p>
-<p>高德地图前端绘制 <a target="_blank" rel="noopener" href="https://github.com/ElemeFE/vue-amap">https://github.com/ElemeFE/vue-amap</a>  这是饿了么的amap<br><a target="_blank" rel="noopener" href="https://lbs.amap.com/">https://lbs.amap.com/</a>  这是高德地图原生的</p>
-<p><a target="_blank" rel="noopener" href="https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare">https://lbs.amap.com/api/jsapi-v2/guide/abc/prepare</a></p>
-<p>MyUI <a target="_blank" rel="noopener" href="https://newgateway.gitee.io/my/">https://newgateway.gitee.io/my/</a></p>
-<p>新德汇地图 <a target="_blank" rel="noopener" href="https://gitee.com/newgateway/xdh-map">https://gitee.com/newgateway/xdh-map</a></p>
-<p>Surely Vue <a target="_blank" rel="noopener" href="https://www.surely.cool/doc/guide">https://www.surely.cool/doc/guide</a></p>
-<p>semantic ui  <a target="_blank" rel="noopener" href="https://semantic-ui.com/elements/icon.html">https://semantic-ui.com/elements/icon.html</a>  </p>
-<p>ant-design vue <a target="_blank" rel="noopener" href="https://www.antdv.com/components/radio-cn">https://www.antdv.com/components/radio-cn</a></p>
-<h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>npm view *** version 查看包目前发布了哪些版本</p>
-<p>使用JSAPI Loader加载高德地图后，window下会出现AMap,AMapUI,Loca等属性</p>
-<h2 id="开发遇到的问题"><a href="#开发遇到的问题" class="headerlink" title="开发遇到的问题"></a>开发遇到的问题</h2><p>取数据时，页数设置，取到了不同数据，测试一下拿到了想要的数据</p>
-<p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
-<p>打开IDEA，报错 project is not defined,在setup了之后，Java文件左下角出现橙色图标，找寻pom.xml文件，右键点击，add as Maven project，错误解决（在这之前其他许多办法都无法解决）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46207055/article/details/113277609">https://blog.csdn.net/m0_46207055/article/details/113277609</a><br>随时保存备份资料</p>
-<p>使用地图时无法使用JSAPI Loader，具体情形在 vue前端使用高德地图 中。</p>
-<p>Vue在methods中的方法无法直接获取data属性中的Array类型属性，如果直接根据索引得到的是[__ob__: Observer]</p>
-<p>在网上搜索方法<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79091215">https://zhuanlan.zhihu.com/p/79091215</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouzuoluo/article/details/103067637">https://blog.csdn.net/zhouzuoluo/article/details/103067637</a><br><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html">https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html</a></p>
-<p>以上教程说明 <em>ob</em>: Observer是 Vue 对数据监控添加的属性，不可枚举和遍历</p>
-<pre><code>JSON.parse(JSON.stringify(list))
-Object.assign(&#123;&#125;,this.list)
-let newarr = Object.assign([],this.data).map(item =&gt; &#123;return Object.assign(&#123;&#125;,item)&#125;)
-</code></pre>
-<p>使用以上三种方法发现返回数据为空</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenchangwenliu/article/details/121954177">https://blog.csdn.net/wenchangwenliu/article/details/121954177</a><br>上面这个教程指出<br>项目中数据从后端而来，最好使用success回调函数进行处理，我预估和我遇到的问题没有关系，因为我获取数据的函数在created阶段，打印数据也显示data中已经有数据，而使用数据在mounted阶段。</p>
-<p>但是在回调函数中使用数据是个似乎可行的解决方式</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ppphill_C/article/details/121066257">https://blog.csdn.net/Ppphill_C/article/details/121066257</a> 这个教程遇到了同样的问题，并且使用JSON.parse(JSON.stringify(数组))数组也为空，但是console.log()能够得到数据，而我在使用数据的函数中甚至console出来的还是空</p>
-<p>在调试的过程中(使用console.log())，发现在created使用axios获得数据并且放在data属性中，在回调阶段还是能得到数据，不清楚是created和mounted这类不同阶段引起的变化还是因为data属性的特性</p>
-<p>跨域问题<br>请求从浏览器发出，到达服务器，服务器响应，浏览器接收发现跨域，不交付数据<br>同源策略：协议名，主机名，端口号必须一致</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/18/Vue%E9%A1%B9%E7%9B%AE%E8%BF%9B%E5%B1%95%E8%BF%87%E7%A8%8B%E7%9A%84%E5%9D%91/" data-id="cl7sq53su0003fssea0au9ihl" class="article-share-link">分享</a>
       
       
     </footer>
@@ -872,7 +932,7 @@ let newarr = Object.assign([],this.data).map(item =&gt; &#123;return Object.assi
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

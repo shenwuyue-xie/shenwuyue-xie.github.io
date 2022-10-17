@@ -5,15 +5,15 @@
   
   <title>JavaScript学习笔记 | 神无月</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript 装饰器和转发 https:&#x2F;&#x2F;zh.javascript.info&#x2F;call-apply-decorators教程中的上下文基本都是指得对象本身，即函数的this指向何处python的函数默认带有this装饰器就是以函数入口为参数的函数 https:&#x2F;&#x2F;zh.javascript.info&#x2F;这个要多看，常看常新 不只是看懂会做会写，这样无非是按照规律复制粘贴罢了重要的是明白背">
+  <meta name="description" content="标记语言如HTML并不向计算机发出指令，而是被动地被读取，常用于格式化和链接 javascript 装饰器和转发 https:&#x2F;&#x2F;zh.javascript.info&#x2F;call-apply-decorators教程中的上下文基本都是指得对象本身，即函数的this指向何处python的函数默认带有this装饰器就是以函数入口为参数的函数 https:&#x2F;&#x2F;zh.javascript.info&#x2F;这个要多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JavaScript学习笔记">
 <meta property="og:url" content="https://shenwuyue-xie.github.io/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="神无月">
-<meta property="og:description" content="javascript 装饰器和转发 https:&#x2F;&#x2F;zh.javascript.info&#x2F;call-apply-decorators教程中的上下文基本都是指得对象本身，即函数的this指向何处python的函数默认带有this装饰器就是以函数入口为参数的函数 https:&#x2F;&#x2F;zh.javascript.info&#x2F;这个要多看，常看常新 不只是看懂会做会写，这样无非是按照规律复制粘贴罢了重要的是明白背">
+<meta property="og:description" content="标记语言如HTML并不向计算机发出指令，而是被动地被读取，常用于格式化和链接 javascript 装饰器和转发 https:&#x2F;&#x2F;zh.javascript.info&#x2F;call-apply-decorators教程中的上下文基本都是指得对象本身，即函数的this指向何处python的函数默认带有this装饰器就是以函数入口为参数的函数 https:&#x2F;&#x2F;zh.javascript.info&#x2F;这个要多">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-25T03:34:19.000Z">
-<meta property="article:modified_time" content="2022-08-30T02:29:36.227Z">
+<meta property="article:modified_time" content="2022-10-17T08:13:13.326Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
   
@@ -47,7 +47,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -109,12 +109,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>javascript 装饰器和转发</p>
+        <p>标记语言如HTML并不向计算机发出指令，而是被动地被读取，常用于格式化和链接</p>
+<p>javascript 装饰器和转发</p>
 <p><a target="_blank" rel="noopener" href="https://zh.javascript.info/call-apply-decorators">https://zh.javascript.info/call-apply-decorators</a><br>教程中的上下文基本都是指得对象本身，即函数的this指向何处<br>python的函数默认带有this<br>装饰器就是以函数入口为参数的函数</p>
 <p><a target="_blank" rel="noopener" href="https://zh.javascript.info/">https://zh.javascript.info/</a><br>这个要多看，常看常新</p>
 <p>不只是看懂会做会写，这样无非是按照规律复制粘贴罢了<br>重要的是明白背后的原理，为什么这么做，有什么好处，意义在哪里，逻辑是什么</p>
 <p>看懂技术思想，为了具体实现做了什么</p>
 <p>按钮控件将文件路径传入文本框<br>网上查到的资料有问题</p>
+<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><p>脚本加载往往是异步的，这意味着会出现因为脚本尚未加载完毕，使用函数中的脚本报错的情况。</p>
+<pre><code>loadScript(&#39;/my/script.js&#39;); // 这个脚本有 &quot;function newFunction() &#123;…&#125;&quot;
+
+newFunction(); // 没有这个函数！
+</code></pre>
+<p>要使用脚本，可以使用回调函数，并使用onload()等待脚本加载完毕，以及使用onerror处理错误情况</p>
+<pre><code>function loadScript(src, callback) &#123;
+let script = document.createElement(&#39;script&#39;);
+script.src = src;
+
+script.onload = () =&gt; callback(null, script);
+script.onerror = () =&gt; callback(new Error(`Script load error for $&#123;src&#125;`));
+
+document.head.append(script);
+&#125;
+</code></pre>
+<p>但是以上方法在回调层数增多时会出现回调地狱的情形（层层嵌套，代码难以维护）</p>
+<pre><code>loadScript(&#39;1.js&#39;, function(error, script) &#123;
+
+if (error) &#123;
+    handleError(error);
+&#125; else &#123;
+    // ...
+    loadScript(&#39;2.js&#39;, function(error, script) &#123;
+    if (error) &#123;
+        handleError(error);
+    &#125; else &#123;
+        // ...
+        loadScript(&#39;3.js&#39;, function(error, script) &#123;
+        if (error) &#123;
+            handleError(error);
+        &#125; else &#123;
+            // ...加载完所有脚本后继续 (*)
+        &#125;
+        &#125;);
+
+    &#125;
+    &#125;);
+&#125;
+&#125;);
+</code></pre>
+<p>可以使用Promise更简洁更完备地完成上述功能</p>
+<pre><code>let promise = new Promise(function(resolve, reject) &#123;
+// executor（生产者，消费者）
+&#125;);
+</code></pre>
+<p>executor 会自动运行并尝试执行一项工作。尝试结束后，如果成功则调用 resolve，如果出现 error 则调用 reject。<br>由 new Promise 构造器返回的 promise 对象具有以下内部属性：<br>state —— 最初是 “pending”，然后在 resolve 被调用时变为 “fulfilled”，或者在 reject 被调用时变为 “rejected”。<br>result —— 最初是 undefined，然后在 resolve(value) 被调用时变为 value，或者在 reject(error) 被调用时变为 error。</p>
+<p>executor 只能调用一个 resolve 或一个 reject。任何状态的更改都是最终的。<br>所有其他的再对 resolve 和 reject 的调用都会被忽略</p>
+<p>使用.then语法<br>    promise.then(<br>    function(result) { &#x2F;* handle a successful result <em>&#x2F; },<br>    function(error) { &#x2F;</em> handle an error *&#x2F; }<br>    );<br>可以使用catch来处理error,而.catch(f) 调用是 .then(null, f) 的完全的模拟，它只是一个简写形式。</p>
+<p>finally类似于try catch finally </p>
+<p>finally 处理程序（handler）没有参数。在finally中，我们不知道promise是否成功。没关系，因为我们的任务通常是执行“常规”的完成程序（finalizing procedures）。<br>请看上面的例子：如你所见，finally处理程序没有参数，promise的结果由下一个处理程序处理。<br>finally处理程序将结果或 error“传递”给下一个合适的处理程序。</p>
+<p>不断使用.then构建Promise链，每个对.then的调用都会返回了一个新的promise<br>promise常用于网络请求，也可以结合fetch</p>
+<p>绑定事件函数的几个方法，以及不同之处</p>
+<h2 id="绑定事件函数"><a href="#绑定事件函数" class="headerlink" title="绑定事件函数"></a>绑定事件函数</h2><h2 id="JavaScript列表"><a href="#JavaScript列表" class="headerlink" title="JavaScript列表"></a>JavaScript列表</h2><p>可以使用Array和[]来声明列表，直接给空列表赋值会改变列表长度并添加相应位置的元素，不会报错</p>
 
       
     </div>
@@ -189,7 +244,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

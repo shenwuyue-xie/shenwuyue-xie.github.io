@@ -32,7 +32,7 @@
 <meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%AD%A6%E4%B9%A0/life.png">
 <meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%AD%A6%E4%B9%A0/vue_render.png">
 <meta property="article:published_time" content="2022-08-31T03:12:49.000Z">
-<meta property="article:modified_time" content="2022-09-08T07:24:35.844Z">
+<meta property="article:modified_time" content="2022-10-08T07:43:30.703Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%AD%A6%E4%B9%A0/attr.png">
@@ -67,7 +67,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -253,7 +253,9 @@ new Vue(&#123;
 
 <p>所有不是由Vue控制的回调尽可能用箭头函数</p>
 <p>数据劫持的含义就是，Vue对data中的数据处理过程，添加getter,setter等等，这使得Vue能够完成数据监视</p>
-<h2 id="Vue收集表单数据"><a href="#Vue收集表单数据" class="headerlink" title="Vue收集表单数据"></a>Vue收集表单数据</h2><p>Vue过滤器<br>Vue _ref属性<br>v-text指令<br>v-html指令<br>v-cloak指令<br>v-once指令<br>v-pre指令<br>自定义指令<br>mixin混入</p>
+<h2 id="Vue收集表单数据"><a href="#Vue收集表单数据" class="headerlink" title="Vue收集表单数据"></a>Vue收集表单数据</h2><p>Vue过滤器<br>Vue _ref属性<br>用于代替 document.getElementByID()，给标签添加ref属性后，this.$refs会有标签DOM<br>可以用于寻找Vue组件实例对象<br>在用于一般的HTML标签时，和ID属性没什么区别，在用于Vue组件时会有区别,ref属性能找到Vue的实例对象，但是ID找到的是Vue的整个DOM结构</p>
+<p>v-text指令</p>
+<p>v-html指令<br>v-cloak指令<br>v-once指令<br>v-pre指令<br>自定义指令<br>mixin混入</p>
 <h2 id="Vue-props属性"><a href="#Vue-props属性" class="headerlink" title="Vue props属性"></a>Vue props属性</h2><p>复用组件时，模板一致，数据不一致，可以使用props<br>一个组件使用另一个基础组件，并传入相应的数据，基础组件可以限定接收的数据类型<br>要注意v-bind能够解析JS表达式，可以将 age:”18” 变成 :age:”18”,解析后传入数值而非字符串<br>props属性可以使用required限定必须传过来的数据，使用default设置默认值<br>使用props接收数据后尽可能不要直接修改（容易报错），可以通过data和methods加工后使用<br>props属性优先级比data属性高</p>
 <h2 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h2><p>用debugger调试前端代码<br>图片在四十九节</p>
 <img src="/2022/08/31/Vue%E5%AD%A6%E4%B9%A0/life.png" class="">
@@ -271,11 +273,15 @@ new Vue(&#123;
 <p>Vue插槽，是组件本身有一个空置的地方（插槽），组件的使用者在使用组件时，可以在组件标签中填充一些内容，从而使得插槽被填充并显示，填充内容由使用者自行选择<br>插槽的作用是让父组件可以向子组件指定位置插入html结构，也是一种组件间通信的方式，适用于父组件&#x3D;&#x3D;&#x3D;&gt;子组件</p>
 <p>具名插槽可以使得组件使用者为指定插槽填充内容（当有多个插槽时）<br>当插件使用者使用template作为插槽的填充内容时，可以使用v-slot指定插槽</p>
 <p>当插件使用者使用插件，填充插件中的slot时，其数据来源于插件而非使用者（使用者需要定义数据的使用方式，定义数据的生成结构），使用作用域插槽，被使用的插件在插槽上声明数据，那么使用者就能得到这个数据。使用者需要用以下方式获得数据<br>    <template scope="data"></template></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>专门在Vue中实现集中式状态（数据）管理的一个Vue插件<br>1.多个组件依赖同一状态<br>2.来自不同组件的行为需要变更同一状态</p>
+<h2 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h2><p>LocalStorage 手动清除消失<br>sessionStorage 随着浏览器存储关闭而消失</p>
+<p>JSON.stringify()能够将对象转换为字符串形式并且能看到内容<br>JSON.parse()将字符串解析为对象</p>
+<p>浏览器上的黑色为字符串，蓝色是数字</p>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>专门在Vue中实现集中式状态（数据）管理的一个Vue插件<br>1.多个组件依赖同一状态<br>2.来自不同组件的行为需要变更同一状态</p>
 <h2 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h2><p>vue的一个插件库，专门用来实现spa应用（single page web application）</p>
 <p>spa应用<br>1.单页web应用<br>2.整个应用只有一个完整的页面<br>3.点击页面中的导航链接不会刷新页面，只会做页面的局部更新<br>4.数据需要通过ajax请求获取</p>
 <p>路由分为后端路由和前端路由</p>
-<h2 id="Vue配置代理"><a href="#Vue配置代理" class="headerlink" title="Vue配置代理"></a>Vue配置代理</h2><p>前后端之间的通信方式<br>xhr new XMLHttpRequest() xhr.open() xhr.send() 最底层,JS内置，window对象下具有这个底层对象<br>jQuery $.get $.post  很重，核心80%都是封装DOM操作，20%是周边操作，封装了xhr<br>axios promise风格 封装xhr<br>fetch promise风格 和xhr一个级别，有兼容性问题，包装了两层promise，同样是window的内置对象</p>
+<h2 id="全局事件总线-任意组件间通信"><a href="#全局事件总线-任意组件间通信" class="headerlink" title="全局事件总线 任意组件间通信"></a>全局事件总线 任意组件间通信</h2><h2 id="Vue配置代理"><a href="#Vue配置代理" class="headerlink" title="Vue配置代理"></a>Vue配置代理</h2><p>前后端之间的通信方式<br>xhr new XMLHttpRequest() xhr.open() xhr.send() 最底层,JS内置，window对象下具有这个底层对象<br>jQuery $.get $.post  很重，核心80%都是封装DOM操作，20%是周边操作，封装了xhr<br>axios promise风格 封装xhr<br>fetch promise风格 和xhr一个级别，有兼容性问题，包装了两层promise，同样是window的内置对象</p>
+<p>跨域问题<br>请求从浏览器发出，到达服务器，服务器响应，浏览器接收发现跨域，不交付数据<br>同源策略：协议名，主机名，端口号必须一致</p>
 <p>后端cors可以实质上的解决跨域问题<br>jsonp可以比较巧妙地解决跨域问题，利用script中的src不受跨域影响的特性，但是需要前后端一起做，并且只能解决get请求，相对比较少见</p>
 <p>代理服务器，通过服务器之间的通信，避开了同源策略的限制<br>使用nginx可以开启代理服务器<br>vue-cli也可以做到，使用devServer配置</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/abraham_ly/article/details/114400117">https://blog.csdn.net/abraham_ly/article/details/114400117</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104984869">https://zhuanlan.zhihu.com/p/104984869</a></p>
@@ -357,7 +363,7 @@ new Vue(&#123;
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

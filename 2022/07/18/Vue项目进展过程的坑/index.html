@@ -13,7 +13,7 @@
 <meta property="og:description" content="在做Vue项目时总是遇到各种奇形怪状的坑，特此记录，以备后用 高德地图前端绘制 https:&#x2F;&#x2F;github.com&#x2F;ElemeFE&#x2F;vue-amap  这是饿了么的amaphttps:&#x2F;&#x2F;lbs.amap.com&#x2F;  这是高德地图原生的 https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare MyUI https:&#x2F;&#x2F;newgateway.gite">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-18T11:36:24.000Z">
-<meta property="article:modified_time" content="2022-09-08T05:36:29.710Z">
+<meta property="article:modified_time" content="2022-09-21T03:23:59.504Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
   
@@ -47,7 +47,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -120,9 +120,8 @@
 <h2 id="技巧"><a href="#技巧" class="headerlink" title="技巧"></a>技巧</h2><p>npm view *** version 查看包目前发布了哪些版本</p>
 <p>使用JSAPI Loader加载高德地图后，window下会出现AMap,AMapUI,Loca等属性</p>
 <h2 id="开发遇到的问题"><a href="#开发遇到的问题" class="headerlink" title="开发遇到的问题"></a>开发遇到的问题</h2><p>取数据时，页数设置，取到了不同数据，测试一下拿到了想要的数据</p>
-<p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
+<p>使用地图时无法使用JSAPI Loader，具体情形在 Vue前端使用高德地图 中。<br>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
 <p>打开IDEA，报错 project is not defined,在setup了之后，Java文件左下角出现橙色图标，找寻pom.xml文件，右键点击，add as Maven project，错误解决（在这之前其他许多办法都无法解决）<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_46207055/article/details/113277609">https://blog.csdn.net/m0_46207055/article/details/113277609</a><br>随时保存备份资料</p>
-<p>使用地图时无法使用JSAPI Loader，具体情形在 vue前端使用高德地图 中。</p>
 <p>Vue在methods中的方法无法直接获取data属性中的Array类型属性，如果直接根据索引得到的是[__ob__: Observer]</p>
 <p>在网上搜索方法<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/79091215">https://zhuanlan.zhihu.com/p/79091215</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhouzuoluo/article/details/103067637">https://blog.csdn.net/zhouzuoluo/article/details/103067637</a><br><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html">https://www.dounaite.com/article/627c98b6ac359fc9132d59af.html</a></p>
 <p>以上教程说明 <em>ob</em>: Observer是 Vue 对数据监控添加的属性，不可枚举和遍历</p>
@@ -131,11 +130,20 @@ Object.assign(&#123;&#125;,this.list)
 let newarr = Object.assign([],this.data).map(item =&gt; &#123;return Object.assign(&#123;&#125;,item)&#125;)
 </code></pre>
 <p>使用以上三种方法发现返回数据为空</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenchangwenliu/article/details/121954177">https://blog.csdn.net/wenchangwenliu/article/details/121954177</a><br>上面这个教程指出<br>项目中数据从后端而来，最好使用success回调函数进行处理，我预估和我遇到的问题没有关系，因为我获取数据的函数在created阶段，打印数据也显示data中已经有数据，而使用数据在mounted阶段。</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wenchangwenliu/article/details/121954177">https://blog.csdn.net/wenchangwenliu/article/details/121954177</a><br>上面这个教程指出数据异步请求取用问题<br>项目中数据从后端而来，最好使用success回调函数进行处理，我预估和我遇到的问题没有关系，因为我获取数据的函数在created阶段，打印数据也显示data中已经有数据，而使用数据在mounted阶段。</p>
 <p>但是在回调函数中使用数据是个似乎可行的解决方式</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ppphill_C/article/details/121066257">https://blog.csdn.net/Ppphill_C/article/details/121066257</a> 这个教程遇到了同样的问题，并且使用JSON.parse(JSON.stringify(数组))数组也为空，但是console.log()能够得到数据，而我在使用数据的函数中甚至console出来的还是空</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Ppphill_C/article/details/121066257">https://blog.csdn.net/Ppphill_C/article/details/121066257</a> 这个教程遇到了同样的问题，并且使用JSON.parse(JSON.stringify(数组))数组也为空，但是console.log()能够得到数据，而我在使用数据的函数中甚至console出来的还是空(只有[__ob__: Observer])</p>
 <p>在调试的过程中(使用console.log())，发现在created使用axios获得数据并且放在data属性中，在回调阶段还是能得到数据，不清楚是created和mounted这类不同阶段引起的变化还是因为data属性的特性</p>
-<p>跨域问题<br>请求从浏览器发出，到达服务器，服务器响应，浏览器接收发现跨域，不交付数据<br>同源策略：协议名，主机名，端口号必须一致</p>
+<p>当把数据的处理阶段放在axios回调函数时，可以拿到数据<br>经过实测，无论是mounted阶段还是created阶段，调用函数在改变data属性之后，this.data无法得到，而console.log(this)可以发现VueComponent存在这个data属性，应该是data属性无法直接取用</p>
+<p>Vue的devtools无法看到组件内部的属性，难以调试</p>
+<p>并且经过实测，window下可以得到AMap，但是却无法赋值给变量AMap</p>
+<p>当mounted()里调用函数时，即便有前后顺序，当前面的函数对Vue组件的data属性有所改变的时候，或者为组件添加了一些属性，后面的函数完全察觉不到，怀疑是异步调用的问题</p>
+<p>决定不使用函数，不调用函数，函数体全部在mounted()里，成功</p>
+<p>也就是说，created()和mounted()最好不要调用methods()的函数，直接把函数体写出来</p>
+<p>在devtools找到了组件以及相应的属性</p>
+<p>可能是加载脚本太慢，可以尝试使用JS脚本引入，而非npm方法<br>可以尝试使用promise链来解决问题</p>
+<p>成功！！！ 原来就是promise链可以解决的问题，在于这些函数获得数据并不同步！！！</p>
+<p>总结，得到数据为[__ob__: Observer]原因就在于，数据根本还没拿到就开始处理了，第一个函数加载脚本和插件，后面拿不到AMap（或者window下还没有AMap）可能就是脚本还没加载完就开始做，同理，第二个函数请求数据，会出现，数据还没拿回来，第三个函数就开始处理。<br>三个函数有个处理数据的顺序，一定要保证前者数据能够拿到，.then处理接下来的流程</p>
 
       
     </div>
@@ -210,7 +218,7 @@ let newarr = Object.assign([],this.data).map(item =&gt; &#123;return Object.assi
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

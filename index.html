@@ -45,7 +45,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -72,6 +72,102 @@
 </div>
 
         <section id="main">
+  
+    <article id="post-JavaScript学习" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/17/JavaScript%E5%AD%A6%E4%B9%A0/" class="article-date">
+  <time class="post-time" datetime="2022-10-17T06:08:34.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">17</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/17/JavaScript%E5%AD%A6%E4%B9%A0/">JavaScript学习</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/10/17/JavaScript%E5%AD%A6%E4%B9%A0/" data-id="cl9cj23330000o4se1j2yb4r5" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+  
+    <article id="post-Vue组件通信" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/10/14/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" class="article-date">
+  <time class="post-time" datetime="2022-10-14T08:49:22.000Z" itemprop="datePublished">
+    <span class="post-month">10月</span><br/>
+    <span class="post-day">14</span>
+  </time>
+</a>
+   
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/14/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/">Vue组件通信</a>
+    </h1>
+  
+
+        <div>
+          
+          
+              
+
+          
+        </div>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://shenwuyue-xie.github.io/2022/10/14/Vue%E7%BB%84%E4%BB%B6%E9%80%9A%E4%BF%A1/" data-id="cl9cj233g0001o4se150k65ux" class="article-share-link">分享</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
   
     <article id="post-VScode调试vue" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -112,7 +208,7 @@
         <p>在写Vue项目时总是遇到各种奇形怪状的坑<br><a target="_blank" rel="noopener" href="https://vue.docschina.org/v2/cookbook/debugging-in-vscode.html">https://vue.docschina.org/v2/cookbook/debugging-in-vscode.html</a><br>这个教程有误，没有npm start命令</p>
 <p>使用Vscode调试Vue<br><a target="_blank" rel="noopener" href="https://vuejs.bootcss.com/cookbook/debugging-in-vscode.html">https://vuejs.bootcss.com/cookbook/debugging-in-vscode.html</a><br>官网教程</p>
 <p><a target="_blank" rel="noopener" href="https://cli.vuejs.org/zh/config/">https://cli.vuejs.org/zh/config/</a><br>第一次尝试不成功，可能是是配置项有proxy网络代理，从官网的配置项教程来看，配置项也存在错误<br>配置项也有相应的对象设置等等规范</p>
-<p>不启用代理，在 vue.config.js文件中仅设置configureWebpack<br>    module.exports &#x3D; {<br>        configureWebpack: {<br>            devtool: ‘source-map’<br>        },<br>        lintOnSave: false<br>    }<br>最终成功</p>
+<p>不启用代理，在 vue.config.js文件中仅设置configureWebpack<br>    module.exports &#x3D; {<br>        configureWebpack: {<br>            devtool: ‘source-map’<br>        },<br>        lintOnSave: false<br>    }<br>最终成功<br>以上有误，不启用代理将无法得到数据</p>
 <p>也可以直接使用debugger语句</p>
 
       
@@ -531,7 +627,9 @@ new Vue(&#123;
 
 <p>所有不是由Vue控制的回调尽可能用箭头函数</p>
 <p>数据劫持的含义就是，Vue对data中的数据处理过程，添加getter,setter等等，这使得Vue能够完成数据监视</p>
-<h2 id="Vue收集表单数据"><a href="#Vue收集表单数据" class="headerlink" title="Vue收集表单数据"></a>Vue收集表单数据</h2><p>Vue过滤器<br>Vue _ref属性<br>v-text指令<br>v-html指令<br>v-cloak指令<br>v-once指令<br>v-pre指令<br>自定义指令<br>mixin混入</p>
+<h2 id="Vue收集表单数据"><a href="#Vue收集表单数据" class="headerlink" title="Vue收集表单数据"></a>Vue收集表单数据</h2><p>Vue过滤器<br>Vue _ref属性<br>用于代替 document.getElementByID()，给标签添加ref属性后，this.$refs会有标签DOM<br>可以用于寻找Vue组件实例对象<br>在用于一般的HTML标签时，和ID属性没什么区别，在用于Vue组件时会有区别,ref属性能找到Vue的实例对象，但是ID找到的是Vue的整个DOM结构</p>
+<p>v-text指令</p>
+<p>v-html指令<br>v-cloak指令<br>v-once指令<br>v-pre指令<br>自定义指令<br>mixin混入</p>
 <h2 id="Vue-props属性"><a href="#Vue-props属性" class="headerlink" title="Vue props属性"></a>Vue props属性</h2><p>复用组件时，模板一致，数据不一致，可以使用props<br>一个组件使用另一个基础组件，并传入相应的数据，基础组件可以限定接收的数据类型<br>要注意v-bind能够解析JS表达式，可以将 age:”18” 变成 :age:”18”,解析后传入数值而非字符串<br>props属性可以使用required限定必须传过来的数据，使用default设置默认值<br>使用props接收数据后尽可能不要直接修改（容易报错），可以通过data和methods加工后使用<br>props属性优先级比data属性高</p>
 <h2 id="Vue生命周期"><a href="#Vue生命周期" class="headerlink" title="Vue生命周期"></a>Vue生命周期</h2><p>用debugger调试前端代码<br>图片在四十九节</p>
 <img src="/2022/08/31/Vue%E5%AD%A6%E4%B9%A0/life.png" class="">
@@ -549,11 +647,15 @@ new Vue(&#123;
 <p>Vue插槽，是组件本身有一个空置的地方（插槽），组件的使用者在使用组件时，可以在组件标签中填充一些内容，从而使得插槽被填充并显示，填充内容由使用者自行选择<br>插槽的作用是让父组件可以向子组件指定位置插入html结构，也是一种组件间通信的方式，适用于父组件&#x3D;&#x3D;&#x3D;&gt;子组件</p>
 <p>具名插槽可以使得组件使用者为指定插槽填充内容（当有多个插槽时）<br>当插件使用者使用template作为插槽的填充内容时，可以使用v-slot指定插槽</p>
 <p>当插件使用者使用插件，填充插件中的slot时，其数据来源于插件而非使用者（使用者需要定义数据的使用方式，定义数据的生成结构），使用作用域插槽，被使用的插件在插槽上声明数据，那么使用者就能得到这个数据。使用者需要用以下方式获得数据<br>    <template scope="data"></template></p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2><h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>专门在Vue中实现集中式状态（数据）管理的一个Vue插件<br>1.多个组件依赖同一状态<br>2.来自不同组件的行为需要变更同一状态</p>
+<h2 id="浏览器本地存储"><a href="#浏览器本地存储" class="headerlink" title="浏览器本地存储"></a>浏览器本地存储</h2><p>LocalStorage 手动清除消失<br>sessionStorage 随着浏览器存储关闭而消失</p>
+<p>JSON.stringify()能够将对象转换为字符串形式并且能看到内容<br>JSON.parse()将字符串解析为对象</p>
+<p>浏览器上的黑色为字符串，蓝色是数字</p>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><p>专门在Vue中实现集中式状态（数据）管理的一个Vue插件<br>1.多个组件依赖同一状态<br>2.来自不同组件的行为需要变更同一状态</p>
 <h2 id="Vue-router"><a href="#Vue-router" class="headerlink" title="Vue-router"></a>Vue-router</h2><p>vue的一个插件库，专门用来实现spa应用（single page web application）</p>
 <p>spa应用<br>1.单页web应用<br>2.整个应用只有一个完整的页面<br>3.点击页面中的导航链接不会刷新页面，只会做页面的局部更新<br>4.数据需要通过ajax请求获取</p>
 <p>路由分为后端路由和前端路由</p>
-<h2 id="Vue配置代理"><a href="#Vue配置代理" class="headerlink" title="Vue配置代理"></a>Vue配置代理</h2><p>前后端之间的通信方式<br>xhr new XMLHttpRequest() xhr.open() xhr.send() 最底层,JS内置，window对象下具有这个底层对象<br>jQuery $.get $.post  很重，核心80%都是封装DOM操作，20%是周边操作，封装了xhr<br>axios promise风格 封装xhr<br>fetch promise风格 和xhr一个级别，有兼容性问题，包装了两层promise，同样是window的内置对象</p>
+<h2 id="全局事件总线-任意组件间通信"><a href="#全局事件总线-任意组件间通信" class="headerlink" title="全局事件总线 任意组件间通信"></a>全局事件总线 任意组件间通信</h2><h2 id="Vue配置代理"><a href="#Vue配置代理" class="headerlink" title="Vue配置代理"></a>Vue配置代理</h2><p>前后端之间的通信方式<br>xhr new XMLHttpRequest() xhr.open() xhr.send() 最底层,JS内置，window对象下具有这个底层对象<br>jQuery $.get $.post  很重，核心80%都是封装DOM操作，20%是周边操作，封装了xhr<br>axios promise风格 封装xhr<br>fetch promise风格 和xhr一个级别，有兼容性问题，包装了两层promise，同样是window的内置对象</p>
+<p>跨域问题<br>请求从浏览器发出，到达服务器，服务器响应，浏览器接收发现跨域，不交付数据<br>同源策略：协议名，主机名，端口号必须一致</p>
 <p>后端cors可以实质上的解决跨域问题<br>jsonp可以比较巧妙地解决跨域问题，利用script中的src不受跨域影响的特性，但是需要前后端一起做，并且只能解决get请求，相对比较少见</p>
 <p>代理服务器，通过服务器之间的通信，避开了同源策略的限制<br>使用nginx可以开启代理服务器<br>vue-cli也可以做到，使用devServer配置</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/abraham_ly/article/details/114400117">https://blog.csdn.net/abraham_ly/article/details/114400117</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/104984869">https://zhuanlan.zhihu.com/p/104984869</a></p>
@@ -650,6 +752,55 @@ new Vue(&#123;
 <img src="/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png" class="">
 <p>尝试使用JSAPI，npm i @amap&#x2F;amap-jsapi-loader –save 命令报错，似乎是webpack版本有误<br>可能需要重新搭建，升级webpack</p>
 <p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
+<p>信息窗体太受限了，其content不好编写，如何结合后端数据实时展示也是个问题<br>可以设置点标注的文本标签以及文字提示，信息窗体的content也许可以使用ref属性（得到Vue实例的dom对象）和props属性（给Vue实例传递数据信息）来个性化，写起来的麻烦程度不亚于直接描述content，这个方案以后再考虑</p>
+<p>可以先使用ant-design-vue模板来写，可以绑定标记点的信息，先尝试使用气泡卡片来展示内容，用抽屉展示总体信息</p>
+<p>a-popover和marker不好结合，并非固定位置，先尝试使用，如果不行，就使用抽屉或者通知框显示<br>最后再尝试使用V-for列表渲染div，props结合组件展示信息</p>
+<p>使用最简单的方式检查发现气泡展示在最上方正中央，并且发现内容实时展示也不好结合后端数据，只有单个气泡卡片，要展示所有的锚点数据也是很困难的</p>
+<p>实在不能实现气泡展示就放弃，他们的页面也都没有气泡展示</p>
+<p>鼠标移入（或者聚焦），气泡展示简略信息，点击后，以抽屉形式显示详细信息</p>
+<pre><code>marker.on(&#39;mouseover&#39;, this.markerHover);
+marker.emit(&#39;mouseover&#39;, &#123; target: marker &#125;);
+marker.on(&#39;click&#39;, this.markerClick);
+marker.emit(&#39;click&#39;, &#123; target: marker &#125;);
+</code></pre>
+<p>当为标记点同时添加了mouseover和click事件时，打开map页面，无法渲染锚点</p>
+<img src="/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/mouseover.png" class="">
+
+<p>在测试时发现是marker的title和content出现矛盾，去掉content后可以渲染锚点，并且鼠标移入时会出现title</p>
+<p>在删除示例中的emit动作以后，出现以下报错并且无法显示点标记锚点<br>[Violation] Added non-passive event listener to a scroll-blocking ‘touchstart’ event. Consider marking event handler as ‘passive’ to make the page more responsive. See <a target="_blank" rel="noopener" href="https://www.chromestatus.com/feature/5745543795965952">https://www.chromestatus.com/feature/5745543795965952</a><br>将非被动事件侦听器添加到滚动块“touchmove”事件。考虑将事件处理程序标记为“被动”，以提高页面的响应速度</p>
+<p>从字面意义上看似乎是这两个事件放到一个元素上有矛盾</p>
+<p>[Violation] ‘requestAnimationFrame’ handler 用时 <N> 毫秒</p>
+<p>高德的emit函数<br>    emit(type, data)<br>    模拟触发当前实例的某个事件</p>
+<pre><code>参数说明：
+type (String) 事件类型
+data (Object) 事件回调时返回的数据，模拟的事件体应该完整，否则可能导致报错
+返回值：
+Object: 当前实例
+</code></pre>
+<p>在示例中有emit函数时，打开页面便触发了该函数的事件，因此必须去掉emit。当没有去掉时，不会有上述报错</p>
+<p>最终发现marker.title可以自动实现鼠标滑过展现内容<br>上述报警并不影响最终结果<br>经过测试发现在官网demo中<br>    for (var i &#x3D; 0, marker; i &lt; lnglats.length; i++) {<br>    var marker &#x3D; new AMap.Marker({<br>        position: lnglats[i],<br>        map: map<br>    });<br>    marker.content &#x3D; ‘我是第’ + (i + 1) + ‘个Marker’;<br>如果将上述改为<br>    for (var i &#x3D; 0, marker; i &lt; lnglats.length; i++) {<br>    var marker &#x3D; new AMap.Marker({<br>        position: lnglats[i],<br>        map: map,<br>        content: ‘我是第’ + (i + 1) + ‘个Marker’<br>    });<br>content会覆盖锚点，也就是锚点样子变成content的文字内容<br>也就是说，在new的时候添加content和new之后添加会有不一样的效果，也就是官网的’content有效时，icon属性将被覆盖。’</p>
+<pre><code>this.resData = Object.assign([], this.imageData).map((item) =&gt; &#123;
+return Object.assign(&#123;&#125;, item);
+&#125;);
+</code></pre>
+<p>如何将对象转变为JSON对象<br>关于 object.assign()<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f9ec860ecd81">简书 Object.assign()的使用</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN Object.assign()</a></p>
+<p>JSON.parse(JSON.stringify())是深拷贝，而object.assign()是浅拷贝</p>
+<p>谷歌浏览器控制台查看对象属性，深色的属性就是可枚举属性，浅色的属性就是不可枚举属性。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/53032fc0909a">简书 JavaScript的map()函数</a></p>
+<p>电脑在重启以后，无法实现点击锚点弹出抽屉框<br>    &#x2F;&#x2F; marker.on(‘mouseover’, this.markerHover());<br>    &#x2F;&#x2F; marker.emit(‘mouseover’, { target: marker });<br>    marker.on(‘click’, this.markerClick(i));<br>    marker.emit(‘click’, { target: marker });<br>最开始是可以的，甚至于content覆盖icon的时候，点击也能弹出抽屉框，可能又要考虑promise链了<br>以及，在删除掉emit函数以后，打开页面不会自动打开抽屉框。但是现在没有emit函数，页面也会自动打开抽屉框</p>
+<p>再次重启以后还是同样的问题，点击锚点无反应<br>猜测是在mounted阶段的marker，在这之后无法使用</p>
+<p>但是很奇怪的是，官网demo，使用marker.on()，并不会触发emit事件，并且，点击锚点有反应<br>猜测原因是，Vue实例渲染后，在VC实例下找不到marker</p>
+<p>测试官方demo，最开始<br>    .then((AMap) &#x3D;&gt; {<br>        this.map &#x3D; new AMap.Map(“container”, {<br>        viewMode: “3D”,<br>        zoom: 5,<br>        zooms: [2, 22],<br>        resizeEnable: true,<br>        center: [105.602725, 37.076636],<br>        });</p>
+<p>删除上述初始化map的代码时发现可以用了，并且删除emit函数同样不会触发，点击也有效</p>
+<p>将代码全部放到mounted()中，奇怪的是，demo代码在初始化阶段不会触发点击，同时手动点击也有效<br>但我的代码会在初始阶段触发点击，手动点击无效</p>
+<p>当我把markerClick()函数放在mounted中，不会触发点击，手动点击有效，但是<br>将infoWindow挂载在this下，this.infoWindow找不到setContent()</p>
+<p>主要问题是，demo不会在初始阶段点击，但是我的代码总是要在初始化阶段点击触发函数，两者区别仅仅是我的代码使用axios获取数据以后，在.then中初始化marker<br>甚至于，demo并不需要 map.add(marker)就能渲染出marker</p>
+<p>总结就是，Vue代码和官方的JSAPI代码有点不兼容<br>我在axios.then中将marker添加到this.markerlist中，拿出来的list没有on函数<br>同理，之前的this.infoWindow找不到setContent也是因为将元素放置到this下后丢失了一部分属性</p>
+<p>点击后没有效果可能也是Vue找不到该元素下的方法</p>
+<p>最终解决了这个问题，竟然是绑定点击函数时出现了问题，item.on(‘click’,function)不能给function带括号，但是带了括号却自动触发了函数<br>以及需要在data属性中添加对应字段并设为null或者’’空字符串，这样Vue组件能将其设为全局变量</p>
+<p>search框放到一个子组件中</p>
+<p>可以使用props，父组件使用map组件，子组件接收marker要用的数据并使用</p>
+<p>iconfont 阿里巴巴矢量图标库</p>
 
       
     </div>
@@ -774,146 +925,6 @@ new Vue(&#123;
 
 
   
-    <article id="post-js-jq实现按钮选择文件并显示在文本框" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" class="article-date">
-  <time class="post-time" datetime="2022-08-26T07:02:16.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/">js,jq实现按钮选择文件并显示在文本框</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个功能很久都没有实现，几乎查到的所有网上教程都是错的</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_39298625/article/details/106189630">https://blog.csdn.net/baidu_39298625/article/details/106189630</a></p>
-<p>这个方法总体而言是，点击按钮，实时产生一个不可视的input-file，并且点击，</p>
-<p>也许是JS版本问题,查看IDEA的JavaScript版本，为ECMAScript 5.1，无法使用let,可能也没有箭头函数，更改为ECMAScript6 版本<br>即常见的从ES5规范到ES6规范</p>
-<p>ECMAscript和JavaScript的关系<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69171948">https://zhuanlan.zhihu.com/p/69171948</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/373086344">https://zhuanlan.zhihu.com/p/373086344</a></p>
-<p>JavaScript实现包含三个方面<br>    1. ECMAscript(语言核心功能基于ES规范)<br>    2. DOM— js需要支持对DOM的维护,通过document,element对象实现.这些都是在ES中没有的.<br>    3. BOM— js需要支持对BOM的维护,通过window对象实现.这些都是在ES中没有的.</p>
-<p>关于webkitRelativePath<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/webkitRelativePath">https://developer.mozilla.org/zh-CN/docs/Web/API/File/webkitRelativePath</a></p>
-<p>lay ui 和 semantic ui, element ui 类似</p>
-<p>报 post 403错误，并且后端无法打断点调试，使用console.log，发现甚至无法进入函数体中</p>
-<img src="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/error1.png" class="">
-<pre><code>403（禁止）状态码表明服务端已经明白请求，但是拒绝授权...如果请求中提供了授权的身份认证，服务端认为它们不足以授予访问权限。
-</code></pre>
-<p>很离谱的错误，我甚至无法定位原因，只能猜测是浏览器认定没有权限选择文件</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45455554/article/details/119024078">https://blog.csdn.net/qq_45455554/article/details/119024078</a><br>在解决这个问题的时候，这篇博客代表了大部门答案的逻辑，就是用Button引起一个type为file的input按钮的点击，但是实际测试无效果<br>input-file 设置 Style &#x3D; “display: none “ 或者 “visibility:hidden”<br>还是报403错误？之前不是这种错误，之前是无法显示到文本框中<br>可能需要搜寻一些IDEA调试前端代码的资料</p>
-<p>有可能是表单类型的原因，现在要上传文件了</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" data-id="cl7fk5tj10003zkse3q63d6ll" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java反射机制" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="article-date">
-  <time class="post-time" datetime="2022-08-26T05:45:50.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java反射机制</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/70768369">https://blog.csdn.net/javazejian/article/details/70768369</a></p>
-<h1 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a>Class 类</h1><p>反射机制允许我们在运行时发现和使用类型的信息,在Java中用来表示运行时类型信息的对应类就是Class类，Class类也是一个实实在在的类，存在于JDK的java.lang包中。</p>
-<p>编译时，每一个自定义类，都有对应的Class对象，并且该对象保存在同名.class文件里（编译后的字节码文件保存的就是Class对象），，当我们new一个新对象或者引用静态成员变量时，Java虚拟机(JVM)中的类加载器子系统会将对应Class对象加载到JVM中，然后JVM再根据这个类型信息相关的Class对象创建我们需要实例对象或者提供静态变量的引用值。需要特别注意的是，手动编写的每个class类，无论创建多少个实例对象，在JVM中都只有一个Class对象，即在内存中每个类有且只有一个相对应的Class对象。</p>
-<p>Class类只存私有构造函数，因此对应Class对象只能有JVM创建和加载，Class类的对象作用是运行时提供或获得某个对象的类型信息，这点对于反射技术很重要。</p>
-<h1 id="获取Class类"><a href="#获取Class类" class="headerlink" title="获取Class类"></a>获取Class类</h1><p>获取Class对象引用的方式3种，通过继承自Object类的getClass方法，Class类的静态方法forName以及字面常量的方式”.class”。</p>
-<p>其中实例类的getClass方法和Class类的静态方法forName都将会触发类的初始化阶段，而字面常量获取Class对象的方式则不会触发初始化。</p>
-<p>初始化是类加载的最后一个阶段，也就是说完成这个阶段后类也就加载到内存中(Class对象在加载阶段已被创建)，此时可以对类进行各种必要的操作了（如new对象，调用静态成员等），注意在这个阶段，才真正开始执行类中定义的Java程序代码或者字节码。</p>
-<p>使用泛型可以约束声明指定类型的对象，而Class&lt;?&gt;优于直接使用Class，extends关键字可以告知编译器接收某个类型的子类</p>
-<pre><code>Class&lt;? extends Number&gt; clazz = Integer.class;
-clazz = double.class;
-clazz = Number.class;
-</code></pre>
-<p>向Class引用添加泛型约束仅仅是为了提供编译期类型的检查从而避免将错误延续到运行时期。</p>
-<p>可以使用利用Class对象的cast方法进行类型强制转换<br>instanceof 和 isInstance 用于判定对象类型是否正确</p>
-<p><strong>反射机制</strong></p>
-<p>反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性，这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
-<p>Constructor类存在于反射包(java.lang.reflect)中，反映的是Class 对象所表示的类的构造方法。</p>
-<p>Field 提供有关类或接口的单个字段的信息，以及对它的动态访问权限。反射的字段可能是一个类（静态）字段或实例字段。</p>
-<p>Method 提供关于类或接口上单独某个方法（以及如何访问该方法）的信息，所反映的方法可能是类方法或实例方法（包括抽象方法）。</p>
-<p>以上三者，都可以通过Class类的方法获得其对象</p>
-<p>在Java的java.lang.reflect包中存在着一个可以动态操作数组的类，Array，它提供了动态创建和访问 Java 数组的方法。Array 允许在执行 get 或 set 操作进行取值和赋值。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-id="cl7a3n6av00032wse4yzm2gub" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -958,7 +969,7 @@ clazz = Number.class;
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>

@@ -13,8 +13,9 @@
 <meta property="og:description" content="vue项目结合高德地图 首先在高德地图官网申请key,本项目使用web端https:&#x2F;&#x2F;console.amap.com&#x2F;dev&#x2F;key&#x2F;app 官方web地图开发文档https:&#x2F;&#x2F;lbs.amap.com&#x2F;api&#x2F;jsapi-v2&#x2F;guide&#x2F;abc&#x2F;prepare 最简单的方式，使用javascript脚本添加，(JSAPI因为webpack版本原因无法下载loader) https:&#x2F;&#x2F;w">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png">
+<meta property="og:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/mouseover.png">
 <meta property="article:published_time" content="2022-08-31T02:31:53.000Z">
-<meta property="article:modified_time" content="2022-09-07T11:27:36.602Z">
+<meta property="article:modified_time" content="2022-10-17T06:04:53.584Z">
 <meta property="article:author" content="shenwuyue">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://shenwuyue-xie.github.io/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png">
@@ -49,7 +50,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
@@ -148,6 +149,55 @@
 <img src="/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/error.png" class="">
 <p>尝试使用JSAPI，npm i @amap&#x2F;amap-jsapi-loader –save 命令报错，似乎是webpack版本有误<br>可能需要重新搭建，升级webpack</p>
 <p>Vue CLI使用的webpack版本是4.46，而地图的NPM使用方式需要webpack5版本以上，无法使用，只能使用官网JS脚本添加<br>最终找到原因，原项目中Less-loader版本过高，降低到7以后安装成功<br>本项目是一个单页面web，通过路由跳转到相应的组件</p>
+<p>信息窗体太受限了，其content不好编写，如何结合后端数据实时展示也是个问题<br>可以设置点标注的文本标签以及文字提示，信息窗体的content也许可以使用ref属性（得到Vue实例的dom对象）和props属性（给Vue实例传递数据信息）来个性化，写起来的麻烦程度不亚于直接描述content，这个方案以后再考虑</p>
+<p>可以先使用ant-design-vue模板来写，可以绑定标记点的信息，先尝试使用气泡卡片来展示内容，用抽屉展示总体信息</p>
+<p>a-popover和marker不好结合，并非固定位置，先尝试使用，如果不行，就使用抽屉或者通知框显示<br>最后再尝试使用V-for列表渲染div，props结合组件展示信息</p>
+<p>使用最简单的方式检查发现气泡展示在最上方正中央，并且发现内容实时展示也不好结合后端数据，只有单个气泡卡片，要展示所有的锚点数据也是很困难的</p>
+<p>实在不能实现气泡展示就放弃，他们的页面也都没有气泡展示</p>
+<p>鼠标移入（或者聚焦），气泡展示简略信息，点击后，以抽屉形式显示详细信息</p>
+<pre><code>marker.on(&#39;mouseover&#39;, this.markerHover);
+marker.emit(&#39;mouseover&#39;, &#123; target: marker &#125;);
+marker.on(&#39;click&#39;, this.markerClick);
+marker.emit(&#39;click&#39;, &#123; target: marker &#125;);
+</code></pre>
+<p>当为标记点同时添加了mouseover和click事件时，打开map页面，无法渲染锚点</p>
+<img src="/2022/08/31/Vue%E5%89%8D%E7%AB%AF%E4%BD%BF%E7%94%A8%E9%AB%98%E5%BE%B7%E5%9C%B0%E5%9B%BE/mouseover.png" class="">
+
+<p>在测试时发现是marker的title和content出现矛盾，去掉content后可以渲染锚点，并且鼠标移入时会出现title</p>
+<p>在删除示例中的emit动作以后，出现以下报错并且无法显示点标记锚点<br>[Violation] Added non-passive event listener to a scroll-blocking ‘touchstart’ event. Consider marking event handler as ‘passive’ to make the page more responsive. See <a target="_blank" rel="noopener" href="https://www.chromestatus.com/feature/5745543795965952">https://www.chromestatus.com/feature/5745543795965952</a><br>将非被动事件侦听器添加到滚动块“touchmove”事件。考虑将事件处理程序标记为“被动”，以提高页面的响应速度</p>
+<p>从字面意义上看似乎是这两个事件放到一个元素上有矛盾</p>
+<p>[Violation] ‘requestAnimationFrame’ handler 用时 <N> 毫秒</p>
+<p>高德的emit函数<br>    emit(type, data)<br>    模拟触发当前实例的某个事件</p>
+<pre><code>参数说明：
+type (String) 事件类型
+data (Object) 事件回调时返回的数据，模拟的事件体应该完整，否则可能导致报错
+返回值：
+Object: 当前实例
+</code></pre>
+<p>在示例中有emit函数时，打开页面便触发了该函数的事件，因此必须去掉emit。当没有去掉时，不会有上述报错</p>
+<p>最终发现marker.title可以自动实现鼠标滑过展现内容<br>上述报警并不影响最终结果<br>经过测试发现在官网demo中<br>    for (var i &#x3D; 0, marker; i &lt; lnglats.length; i++) {<br>    var marker &#x3D; new AMap.Marker({<br>        position: lnglats[i],<br>        map: map<br>    });<br>    marker.content &#x3D; ‘我是第’ + (i + 1) + ‘个Marker’;<br>如果将上述改为<br>    for (var i &#x3D; 0, marker; i &lt; lnglats.length; i++) {<br>    var marker &#x3D; new AMap.Marker({<br>        position: lnglats[i],<br>        map: map,<br>        content: ‘我是第’ + (i + 1) + ‘个Marker’<br>    });<br>content会覆盖锚点，也就是锚点样子变成content的文字内容<br>也就是说，在new的时候添加content和new之后添加会有不一样的效果，也就是官网的’content有效时，icon属性将被覆盖。’</p>
+<pre><code>this.resData = Object.assign([], this.imageData).map((item) =&gt; &#123;
+return Object.assign(&#123;&#125;, item);
+&#125;);
+</code></pre>
+<p>如何将对象转变为JSON对象<br>关于 object.assign()<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f9ec860ecd81">简书 Object.assign()的使用</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN Object.assign()</a></p>
+<p>JSON.parse(JSON.stringify())是深拷贝，而object.assign()是浅拷贝</p>
+<p>谷歌浏览器控制台查看对象属性，深色的属性就是可枚举属性，浅色的属性就是不可枚举属性。</p>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/53032fc0909a">简书 JavaScript的map()函数</a></p>
+<p>电脑在重启以后，无法实现点击锚点弹出抽屉框<br>    &#x2F;&#x2F; marker.on(‘mouseover’, this.markerHover());<br>    &#x2F;&#x2F; marker.emit(‘mouseover’, { target: marker });<br>    marker.on(‘click’, this.markerClick(i));<br>    marker.emit(‘click’, { target: marker });<br>最开始是可以的，甚至于content覆盖icon的时候，点击也能弹出抽屉框，可能又要考虑promise链了<br>以及，在删除掉emit函数以后，打开页面不会自动打开抽屉框。但是现在没有emit函数，页面也会自动打开抽屉框</p>
+<p>再次重启以后还是同样的问题，点击锚点无反应<br>猜测是在mounted阶段的marker，在这之后无法使用</p>
+<p>但是很奇怪的是，官网demo，使用marker.on()，并不会触发emit事件，并且，点击锚点有反应<br>猜测原因是，Vue实例渲染后，在VC实例下找不到marker</p>
+<p>测试官方demo，最开始<br>    .then((AMap) &#x3D;&gt; {<br>        this.map &#x3D; new AMap.Map(“container”, {<br>        viewMode: “3D”,<br>        zoom: 5,<br>        zooms: [2, 22],<br>        resizeEnable: true,<br>        center: [105.602725, 37.076636],<br>        });</p>
+<p>删除上述初始化map的代码时发现可以用了，并且删除emit函数同样不会触发，点击也有效</p>
+<p>将代码全部放到mounted()中，奇怪的是，demo代码在初始化阶段不会触发点击，同时手动点击也有效<br>但我的代码会在初始阶段触发点击，手动点击无效</p>
+<p>当我把markerClick()函数放在mounted中，不会触发点击，手动点击有效，但是<br>将infoWindow挂载在this下，this.infoWindow找不到setContent()</p>
+<p>主要问题是，demo不会在初始阶段点击，但是我的代码总是要在初始化阶段点击触发函数，两者区别仅仅是我的代码使用axios获取数据以后，在.then中初始化marker<br>甚至于，demo并不需要 map.add(marker)就能渲染出marker</p>
+<p>总结就是，Vue代码和官方的JSAPI代码有点不兼容<br>我在axios.then中将marker添加到this.markerlist中，拿出来的list没有on函数<br>同理，之前的this.infoWindow找不到setContent也是因为将元素放置到this下后丢失了一部分属性</p>
+<p>点击后没有效果可能也是Vue找不到该元素下的方法</p>
+<p>最终解决了这个问题，竟然是绑定点击函数时出现了问题，item.on(‘click’,function)不能给function带括号，但是带了括号却自动触发了函数<br>以及需要在data属性中添加对应字段并设为null或者’’空字符串，这样Vue组件能将其设为全局变量</p>
+<p>search框放到一个子组件中</p>
+<p>可以使用props，父组件使用map组件，子组件接收marker要用的数据并使用</p>
+<p>iconfont 阿里巴巴矢量图标库</p>
 
       
     </div>
@@ -222,7 +272,7 @@
     <h2 class="author">shenwuyue</h2>
     <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
     <div class="count-box">
-      <a href="/archives"><div><strong>23</strong><br>文章</div></a>
+      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
       <a href="/categories"><div><strong>5</strong><br>分类</div></a>
       <a href="/tags"><div><strong>2</strong><br>标签</div></a>
     </div>
