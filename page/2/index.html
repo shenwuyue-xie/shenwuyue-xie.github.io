@@ -1,1057 +1,477 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
   
+  <meta name="generator" content="Hexo 6.2.0">
+
+  
+    <meta name="description" content="清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考">
+  
+
+  
+
+  
+    <meta name="author" content="shenwuyue">
+  
+
+  
+
+  
+
   <title>神无月</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考">
-<meta property="og:type" content="website">
-<meta property="og:title" content="神无月">
-<meta property="og:url" content="https://shenwuyue-xie.github.io/page/2/index.html">
-<meta property="og:site_name" content="神无月">
-<meta property="og:description" content="清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="shenwuyue">
-<meta name="twitter:card" content="summary">
+
   
-    <link rel="alternate" href="/atom.xml" title="神无月" type="application/atom+xml">
+
   
+    <link rel="shortcut icon" href="/favicon.ico">
   
-    <link rel="icon" href="/favicon.png">
+
   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
+
   
 <link rel="stylesheet" href="/css/style.css">
 
-  
-<link rel="stylesheet" href="/plugin/bganimation/bg.css">
-
-  
-
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.10.0/katex.min.css" rel="stylesheet" type="text/css">
-<meta name="generator" content="Hexo 6.2.0"></head>
-
+</head>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <div class="outer">
-        <div class="widget-wrap mobile-header">
-  <h3 class="widget-title"></h3>
-  <div class="widget">
-    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
-    <h2 class="author">shenwuyue</h2>
-    <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
-    <div class="count-box">
-      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container">
+  
+    <div class="post-image" style="background-image: url(https://qiniu.sukoshi.xyz/src/images/68686407_p0.jpg)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="/">
+        
+          神无月
+        
+      </a>
     </div>
-    <ul class="blog-link">
-     
-          <a href="/" title="Home">
-            <li>主页</li>
-          </a>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
         
-          <a href="/archives" title="Archives">
-            <li>归档</li>
-          </a>
+          <li class="navbar-list-item"><a href="/">首页</a></li>
         
-          <a href="/categories" title="Categories">
-            <li>分类</li>
-          </a>
+          <li class="navbar-list-item"><a href="/links">友链</a></li>
         
-          <a href="/tags" title="Tags">
-            <li>标签</li>
-          </a>
+          <li class="navbar-list-item"><a href="/about">关于</a></li>
         
-    </ul>
-  </div>
-</div>
-
-        <section id="main">
-  
-    <article id="post-js-jq实现按钮选择文件并显示在文本框" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" class="article-date">
-  <time class="post-time" datetime="2022-08-26T07:02:16.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/">js,jq实现按钮选择文件并显示在文本框</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个功能很久都没有实现，几乎查到的所有网上教程都是错的</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/baidu_39298625/article/details/106189630">https://blog.csdn.net/baidu_39298625/article/details/106189630</a></p>
-<p>这个方法总体而言是，点击按钮，实时产生一个不可视的input-file，并且点击，</p>
-<p>也许是JS版本问题,查看IDEA的JavaScript版本，为ECMAScript 5.1，无法使用let,可能也没有箭头函数，更改为ECMAScript6 版本<br>即常见的从ES5规范到ES6规范</p>
-<p>ECMAscript和JavaScript的关系<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/69171948">https://zhuanlan.zhihu.com/p/69171948</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/373086344">https://zhuanlan.zhihu.com/p/373086344</a></p>
-<p>JavaScript实现包含三个方面<br>    1. ECMAscript(语言核心功能基于ES规范)<br>    2. DOM— js需要支持对DOM的维护,通过document,element对象实现.这些都是在ES中没有的.<br>    3. BOM— js需要支持对BOM的维护,通过window对象实现.这些都是在ES中没有的.</p>
-<p>关于webkitRelativePath<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/File/webkitRelativePath">https://developer.mozilla.org/zh-CN/docs/Web/API/File/webkitRelativePath</a></p>
-<p>lay ui 和 semantic ui, element ui 类似</p>
-<p>报 post 403错误，并且后端无法打断点调试，使用console.log，发现甚至无法进入函数体中</p>
-<img src="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/error1.png" class="">
-<pre><code>403（禁止）状态码表明服务端已经明白请求，但是拒绝授权...如果请求中提供了授权的身份认证，服务端认为它们不足以授予访问权限。
-</code></pre>
-<p>很离谱的错误，我甚至无法定位原因，只能猜测是浏览器认定没有权限选择文件</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45455554/article/details/119024078">https://blog.csdn.net/qq_45455554/article/details/119024078</a><br>在解决这个问题的时候，这篇博客代表了大部门答案的逻辑，就是用Button引起一个type为file的input按钮的点击，但是实际测试无效果<br>input-file 设置 Style &#x3D; “display: none “ 或者 “visibility:hidden”<br>还是报403错误？之前不是这种错误，之前是无法显示到文本框中<br>可能需要搜寻一些IDEA调试前端代码的资料</p>
-<p>有可能是表单类型的原因，现在要上传文件了</p>
-<p>实际上可能是版本原因，也不知道什么原因，甚至连 checkbox中的 onclick &#x3D; “return false;”都无法完成预定功能，无论是JS写法还是jquery写法。</p>
-<p>这已经是第二次，网上查到的资料无法实现预定功能 </p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" data-id="cl7fk5tj10003zkse3q63d6ll" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java反射机制" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" class="article-date">
-  <time class="post-time" datetime="2022-08-26T05:45:50.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/">Java反射机制</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/javazejian/article/details/70768369">https://blog.csdn.net/javazejian/article/details/70768369</a></p>
-<h1 id="Class-类"><a href="#Class-类" class="headerlink" title="Class 类"></a>Class 类</h1><p>反射机制允许我们在运行时发现和使用类型的信息,在Java中用来表示运行时类型信息的对应类就是Class类，Class类也是一个实实在在的类，存在于JDK的java.lang包中。</p>
-<p>编译时，每一个自定义类，都有对应的Class对象，并且该对象保存在同名.class文件里（编译后的字节码文件保存的就是Class对象），，当我们new一个新对象或者引用静态成员变量时，Java虚拟机(JVM)中的类加载器子系统会将对应Class对象加载到JVM中，然后JVM再根据这个类型信息相关的Class对象创建我们需要实例对象或者提供静态变量的引用值。需要特别注意的是，手动编写的每个class类，无论创建多少个实例对象，在JVM中都只有一个Class对象，即在内存中每个类有且只有一个相对应的Class对象。</p>
-<p>Class类只存私有构造函数，因此对应Class对象只能有JVM创建和加载，Class类的对象作用是运行时提供或获得某个对象的类型信息，这点对于反射技术很重要。</p>
-<h1 id="获取Class类"><a href="#获取Class类" class="headerlink" title="获取Class类"></a>获取Class类</h1><p>获取Class对象引用的方式3种，通过继承自Object类的getClass方法，Class类的静态方法forName以及字面常量的方式”.class”。</p>
-<p>其中实例类的getClass方法和Class类的静态方法forName都将会触发类的初始化阶段，而字面常量获取Class对象的方式则不会触发初始化。</p>
-<p>初始化是类加载的最后一个阶段，也就是说完成这个阶段后类也就加载到内存中(Class对象在加载阶段已被创建)，此时可以对类进行各种必要的操作了（如new对象，调用静态成员等），注意在这个阶段，才真正开始执行类中定义的Java程序代码或者字节码。</p>
-<p>使用泛型可以约束声明指定类型的对象，而Class&lt;?&gt;优于直接使用Class，extends关键字可以告知编译器接收某个类型的子类</p>
-<pre><code>Class&lt;? extends Number&gt; clazz = Integer.class;
-clazz = double.class;
-clazz = Number.class;
-</code></pre>
-<p>向Class引用添加泛型约束仅仅是为了提供编译期类型的检查从而避免将错误延续到运行时期。</p>
-<p>可以使用利用Class对象的cast方法进行类型强制转换<br>instanceof 和 isInstance 用于判定对象类型是否正确</p>
-<p><strong>反射机制</strong></p>
-<p>反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性，这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。</p>
-<p>Constructor类存在于反射包(java.lang.reflect)中，反映的是Class 对象所表示的类的构造方法。</p>
-<p>Field 提供有关类或接口的单个字段的信息，以及对它的动态访问权限。反射的字段可能是一个类（静态）字段或实例字段。</p>
-<p>Method 提供关于类或接口上单独某个方法（以及如何访问该方法）的信息，所反映的方法可能是类方法或实例方法（包括抽象方法）。</p>
-<p>以上三者，都可以通过Class类的方法获得其对象</p>
-<p>在Java的java.lang.reflect包中存在着一个可以动态操作数组的类，Array，它提供了动态创建和访问 Java 数组的方法。Array 允许在执行 get 或 set 操作进行取值和赋值。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" data-id="cl7a3n6av00032wse4yzm2gub" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-ConcurrentLinkedQueue和ThreadPoolExecutor" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" class="article-date">
-  <time class="post-time" datetime="2022-08-26T01:56:08.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">26</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/">ConcurrentLinkedQueue和ThreadPoolExecutor</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="ConcurrentLinkedQueue"><a href="#ConcurrentLinkedQueue" class="headerlink" title="ConcurrentLinkedQueue"></a>ConcurrentLinkedQueue</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38293564/article/details/80798310">https://blog.csdn.net/qq_38293564/article/details/80798310</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0">https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0</a></p>
-<p>线程安全的队列实现方式有两种，阻塞算法和非阻塞算法，使用阻塞算法的队列可以用一个锁（入队和出队用同一把锁）或两个锁（入队和出队用不同的锁）等方式来实现，而非阻塞的实现方式则可以使用循环CAS的方式来实现。</p>
-<p>ConcurerntLinkedQueue以非阻塞方式实现</p>
-<p>ConcurerntLinkedQueue一个基于链接节点的无界线程安全队列。此队列按照 FIFO(先进先出)原则对元素进行排序。队列的头部是队列中时间最长的元素。队列的尾部 是队列中时间最短的元素。新的元素插入到队列的尾部，队列获取操作从队列头部获得元素。当多个线程共享访问一个公共 collection 时，ConcurrentLinkedQueue是一个恰当的选择。此队列不允许使用null元素</p>
-<p>ConcurrentLinkedQueue的数据结构与LinkedBlockingQueue的数据结构相同，都是使用的链表结构，包含一个头节点和一个尾节点</p>
-<p>内部类Node<br>    private static class Node<E>{<br>        …<br>    }<br>Node类表示链表结点，用于存放元素，包含item域和next域，item域表示元素，next域表示下一个结点，其利用反射机制和CAS机制来更新item域和next域，保证原子性。</p>
-<p>类属性中包含了head域和tail域，表示链表的头节点和尾结点，同时，ConcurrentLinkedQueue也使用了反射机制和CAS机制来更新头节点和尾结点，保证原子性。</p>
-<p>offer()函数用于将指定元素插入此队列的尾部</p>
-<p>poll()函数用于获取并移除此队列的头，如果此队列为空，则返回null</p>
-<p>remove()函数用于从队列中移除指定元素的单个实例(如果存在)。其中，会调用到first函数和succ函数</p>
-<p>size()函数用于返回ConcurrenLinkedQueue的大小，从第一个存活的结点(first)开始，往后遍历链表，当结点的item域不为null时，增加计数，之后返回大小。</p>
-<p>线程不会因为ConcurrentLinkedQueue队列为空而等待，而是直接返回null，所以当实现队列不空时，等待时，则需要用户自己实现等待逻辑。<br>详细查看<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0">https://www.pdai.tech/md/java/thread/java-thread-x-juc-collection-ConcurrentLinkedQueue.html#poll%E5%87%BD%E6%95%B0</a></p>
-<h2 id="ThreadPoolExecutor"><a href="#ThreadPoolExecutor" class="headerlink" title="ThreadPoolExecutor"></a>ThreadPoolExecutor</h2><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c41e942bcd64">https://www.jianshu.com/p/c41e942bcd64</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f030aa5d7a28">https://www.jianshu.com/p/f030aa5d7a28</a><br><a target="_blank" rel="noopener" href="https://www.twle.cn/c/yufei/javatm/javatm-basic-thread-pool2.html">https://www.twle.cn/c/yufei/javatm/javatm-basic-thread-pool2.html</a></p>
-<p>concurrent包</p>
-<p>java.util.concurrent.locks.ReentrantLock</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" data-id="cl7h8etqp0000ucseeet265na" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-项目流程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/25/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B/" class="article-date">
-  <time class="post-time" datetime="2022-08-25T08:16:29.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">25</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/25/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B/">项目流程</a>
-    </h1>
-  
-
-        <div>
-          
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/25/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B/" data-id="cl7a3n6b600092wseapde028b" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java的File类和Path类" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/25/Java%E7%9A%84File%E7%B1%BB%E5%92%8CPath%E7%B1%BB/" class="article-date">
-  <time class="post-time" datetime="2022-08-25T01:42:18.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">25</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/25/Java%E7%9A%84File%E7%B1%BB%E5%92%8CPath%E7%B1%BB/">Java的File类和Path类</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zimug/p/13594066.html">https://www.cnblogs.com/zimug/p/13594066.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_40230179/article/details/89430807">https://blog.csdn.net/qq_40230179/article/details/89430807</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/a2013126370/article/details/80966463">https://blog.csdn.net/a2013126370/article/details/80966463</a><br>    Using java.io.File Class<br>    Using java.io.FileOutputStream Class<br>    Using java.nio.file.Files from NIO<br>Java IO的一些知识</p>
-<p>Java传统的IO API种使用java.io.File类中的file.mkdir()和file.mkdirs()方法创建文件夹</p>
-<p>mkdirs可以创建两级文件夹，而mkdir必须保证父文件夹存在，创建过程统一返回boolean结果，不会说明原因</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/www_wangjun/article/details/71344589">https://blog.csdn.net/www_wangjun/article/details/71344589</a></p>
-<p>new File(“”)和 new File(“.”), new File(“.\“)</p>
-<p>Java.io.File.listFiles()返回子文件夹,可以使用过滤器<br>    public File[] listFiles()<br>    public File[] listFiles(FilenameFilter f)<br>    public File[] listFiles(FileFilter f)</p>
-<p>为了解决传统IO创建文件夹中异常失败处理问题不明确的问题，在Java的NIO中进行了改进。</p>
-<p>Files.createDirectory(path)和Files.createDirectorys(path)，NIO的API创建的文件夹返回值是Path。</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zwt0909/article/details/51327440">https://blog.csdn.net/zwt0909/article/details/51327440</a></p>
-<p>创建文件路径标记，可以用相对路径或者绝对路径，相对路径是基于当前项目文件的路径</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u010889616/article/details/52694061">https://blog.csdn.net/u010889616/article/details/52694061</a></p>
-<p>从Java 7开始，IO有了新的类,以取代Java.io.File类<br>    import java.nio.file.DirectoryStream;<br>    import java.nio.file.FileSystem;<br>    import java.nio.file.FileSystems;<br>    import java.nio.file.Files;<br>    import java.nio.file.Path;<br>    import java.nio.file.Paths;<br>    import java.nio.file.attribute.FileAttribute;<br>    import java.nio.file.attribute.PosixFilePermission;<br>    import java.nio.file.attribute.PosixFilePermissions;<br>这些工具类实现了IO</p>
-<p>File,Path和URI之间的转换<br>    File file &#x3D; new File(“C:&#x2F;my.ini”);<br>    Path p1 &#x3D; file.toPath();<br>    p1.toFile();<br>    file.toURI();</p>
-<p>Path和Paths类实现了路径管理<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38569499/article/details/84988087">https://blog.csdn.net/weixin_38569499/article/details/84988087</a></p>
-<p>tif文件格式</p>
-<p>以后用到再补充写文件方法</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/25/Java%E7%9A%84File%E7%B1%BB%E5%92%8CPath%E7%B1%BB/" data-id="cl7a3n6az00062wseg0ln12sl" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java-IO/" rel="tag">Java IO</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-IDEA使用教程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/24/IDEA%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="post-time" datetime="2022-08-24T10:50:30.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">24</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/24/IDEA%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">IDEA使用教程</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="IDEA调试代码"><a href="#IDEA调试代码" class="headerlink" title="IDEA调试代码"></a>IDEA调试代码</h1><p><a target="_blank" rel="noopener" href="http://www.justdojava.com/2019/07/20/debug-in-idea/">http://www.justdojava.com/2019/07/20/debug-in-idea/</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039187075">https://segmentfault.com/a/1190000039187075</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/chiangchou/p/idea-debug.html">https://www.cnblogs.com/chiangchou/p/idea-debug.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000039187075">https://segmentfault.com/a/1190000039187075</a></p>
-<img src="/2022/08/24/IDEA%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/button.png" class="">
-
-<p>step over 单步调试代码，直接调用方法返回结果，快捷键F8<br>step into 进入方法内，查看如何返回结果，不过默认情情况下并不会进入 java.* 等类的方法中。如果需要进入，可以在 Setting-Stepping 中设置,排除即可 快捷键F7<br>step out 快速执行方法并返回调用处 Shift+F8</p>
-<p>Setp Out Of Code Block 快速跳出循环代码块（未找到）</p>
-<p>条件断点</p>
-<p>多线程断点暂时用不到，以后更新</p>
-<p>Drop Frame 可以回退调试程序，字面意思为丢栈。JVM 中使用栈帧用于进行方法调用数据结构，每次方法调用，对应着一个栈帧在虚拟机中从入栈到出栈的过程。调用方法之后，该方法栈帧将会位于栈顶。使用的时候，将会回退到该方法调用那一行，状态是还未调用时。和Step out的区别是，Step out 将直接返回调用结果，不再在方法内继续往下走</p>
-<p><a target="_blank" rel="noopener" href="https://blog.51cto.com/ios9/3245769">https://blog.51cto.com/ios9/3245769</a>  IDEA教程</p>
-<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzI0MTUwOTgyOQ==&amp;mid=2247492482&amp;idx=1&amp;sn=79fbb525cf5fd5212010a880035ed0d8&amp;scene=21#wechat_redirect">https://mp.weixin.qq.com/s?__biz=MzI0MTUwOTgyOQ==&amp;mid=2247492482&amp;idx=1&amp;sn=79fbb525cf5fd5212010a880035ed0d8&amp;scene=21#wechat_redirect</a> IDEA发展历程</p>
-<p><a target="_blank" rel="noopener" href="https://guobinhit.github.io/intellij-idea-tutorial/">https://guobinhit.github.io/intellij-idea-tutorial/</a><br><a target="_blank" rel="noopener" href="https://github.com/judasn/IntelliJ-IDEA-Tutorial">https://github.com/judasn/IntelliJ-IDEA-Tutorial</a></p>
-<p>这两个教程比较详细<br><a target="_blank" rel="noopener" href="https://blog.51cto.com/ios9/3245769">https://blog.51cto.com/ios9/3245769</a><br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904020780253191#heading-5">https://juejin.cn/post/6844904020780253191#heading-5</a><br><a target="_blank" rel="noopener" href="https://codeantenna.com/a/KLNaeuPEa3">https://codeantenna.com/a/KLNaeuPEa3</a></p>
-<p>查一查IDEA教程并补充,可以设置背景图片,也可以补充VScode资料</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/24/IDEA%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cl7a3n6af00002wse31heeflf" class="article-share-link">分享</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/IDE/" rel="tag">IDE</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-Java数组" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/24/Java%E6%95%B0%E7%BB%84/" class="article-date">
-  <time class="post-time" datetime="2022-08-24T05:50:51.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">24</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/24/Java%E6%95%B0%E7%BB%84/">Java数组</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ArrayList-List-String-Array"><a href="#ArrayList-List-String-Array" class="headerlink" title="ArrayList,List,String[],Array"></a>ArrayList,List<String>,String[],Array</h1><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wiidi/article/details/82662965">https://blog.csdn.net/wiidi/article/details/82662965</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/niceyoo/article/details/103097173">https://blog.csdn.net/niceyoo/article/details/103097173</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_42002500/article/details/111088801">https://blog.csdn.net/qq_42002500/article/details/111088801</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_38278993/article/details/104316623">https://blog.csdn.net/weixin_38278993/article/details/104316623</a></p>
-<p>List是一个接口类，不能创建实例对象，但是可以为List接口创建一个指向自己的对象引用。而ArrayList实现类的实例对象就在这充当指向List接口的对象引用。 </p>
-<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;();
-</code></pre>
-<p>List有两个重要的实现类：ArrayList和LinkedList</p>
-<img src="/2022/08/24/Java%E6%95%B0%E7%BB%84/Inheritance_relationship.png" class="">
-
-<p>string[]数组里面是存放string型的值，List<string>是存放string类型的对象，<br>String[]是数组，定长，不可变,List<string> 是泛型 ，非定长，可变<br>如果不能确定数组长度，或者在计算值时需要不断向中间插入一个字符串，可以使用List<string>，生成完成后再用ToArray()方法转换为string[]， String[]也可以通过List的AddRange方法添加到List<string>。</p>
-<p>String[]转List：List<String> list &#x3D; Arrays.asList(arr);<br>List转String[]： String[] arr &#x3D; list.toArray(new String[ list.size() ]);</p>
-<p>asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象——这也正是包装类出现的一个主要原因。当传入一个原生数据类型数组时，asList 的真正得到的参数就不是数组中的元素，而是数组对象本身！此时List 的唯一元素就是这个数组。原生数据类型包括了int,short,long等。</p>
-<pre><code>public class Test &#123;
-    public static void main(String[] args) &#123;
-    int[] myArray = &#123; 1, 2, 3 &#125;;
-    List myList = Arrays.asList(myArray);
-    System.out.println(myList.size());
-    &#125;
-&#125;
-</code></pre>
-<p>此代码输出1，而非3。如果尝试遍历 myList ，你会发现得到的元素不是1、2、3中的任意一个，而是一个带有 hashCode 的对象。<br>asList方法:<br>    public static <T> List<T> asList(T… a)</p>
-<p>注意：参数类型是 T ，根据官方文档的描述，T 是数组元素的 class。<br>如果你对反射技术比较了解的话，那么 class 的含义想必是不言自明。我们知道任何类型的对象都有一个 class 属性，这个属性代表了这个类型本身。原生数据类型，比如 int，short，long等，是没有这个属性的，具有 class 属性的是它们所对应的包装类 Integer，Short，Long。<br>因此，这个错误产生的原因可解释为：asList 方法的参数必须是对象或者对象数组，而原生数据类型不是对象——这也正是包装类出现的一个主要原因。当传入一个原生数据类型数组时，asList 的真正得到的参数就不是数组中的元素，而是数组对象本身！此时List 的唯一元素就是这个数组。</p>
-<p>解决方法，使用包装类数组<br>    public class Test {<br>        public static void main(String[] args) {<br>            Integer[] myArray &#x3D; { 1, 2, 3 };<br>            List myList &#x3D; Arrays.asList(myArray);<br>            System.out.println(myList.size());<br>        }<br>    }</p>
-<p>asList</p>
-<p>ArrayList 和 List&lt;&gt;</p>
-<img src="/2022/08/24/Java%E6%95%B0%E7%BB%84/compare.png" class="">
-
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guo0820/article/details/51030526">https://blog.csdn.net/guo0820/article/details/51030526</a></p>
-<p>Arrays 是一个工具类，有sort,binarySearch,ktoString,aslist等方法</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/guo0820/article/details/51030526">https://blog.csdn.net/guo0820/article/details/51030526</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/24/Java%E6%95%B0%E7%BB%84/" data-id="cl7a3n6ax00042wsea3iph2n4" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-postman使用教程" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
-  <time class="post-time" datetime="2022-08-17T07:53:22.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">17</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">postman使用教程</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6913538714060800515/">https://www.toutiao.com/article/6913538714060800515/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6915675572198851075/">https://www.toutiao.com/article/6915675572198851075/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6916875259136475661/">https://www.toutiao.com/article/6916875259136475661/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6828203166245323275/">https://www.toutiao.com/article/6828203166245323275/</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.toutiao.com/article/6830616186628080132/">https://www.toutiao.com/article/6830616186628080132/</a></p>
-<p>不同类型的接口请求要注意Content-Type<br>上传文件的表单请求需要用到multipart&#x2F;form-data</p>
-<p>在测试一些接口时，总是需要登录，因为cookie未设置<br>按照 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45047809/article/details/116299139">https://blog.csdn.net/qq_45047809/article/details/116299139</a>  的方式来改变cookie，可是请求总是自动产生cookie</p>
-<p>可以取消自动产生cookie或者设置全局cookie<br><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtTaMg1sMzkwODE0LWJsb2cO0O0O.html">https://www.csdn.net/tags/MtTaMg1sMzkwODE0LWJsb2cO0O0O.html</a><br><a target="_blank" rel="noopener" href="https://www.dounaite.com/article/625605bd3351efabace82ae4.html">https://www.dounaite.com/article/625605bd3351efabace82ae4.html</a></p>
-<p>算了 我前后端都在做，其实postman没那么必要</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" data-id="cl74507lv000164sef6fsc2j0" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-前后端通信" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/" class="article-date">
-  <time class="post-time" datetime="2022-08-17T06:31:50.000Z" itemprop="datePublished">
-    <span class="post-month">8月</span><br/>
-    <span class="post-day">17</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/">前后端通信</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>一部分知识总结</p>
-<p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Learn/Forms/Sending_and_retrieving_form_data">https://developer.mozilla.org/zh-CN/docs/Learn/Forms/Sending_and_retrieving_form_data</a><br>表单提交的一些基础知识</p>
-<p>针对某一场景需求，实现方式又杂又多地原因是，最基础的有DOM，而Javascript语法可以更方便的调用DOM，Jquery又加了一层封装以更简便</p>
-<p>哪怕是最基础的通信，从最底层的XMLHttpRequest对象到ajax,Javascript的一些通信方式，以及Jquery的ajaxForm(),ajaxSubmit()等函数封装，到更上层的axios，有很多种方式。对于Form表单的提交，文件的提交，也有底层和上层实现方式。</p>
-<p><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/ajax/ajax-uy1r2or1.html">https://www.w3cschool.cn/ajax/ajax-uy1r2or1.html</a></p>
-<p>XMLHttpRequest 是 AJAX 的基础。</p>
-<p>XMLHttpRequest 术语缩写为XHR，中文可以解释为可扩展超文本传输请求。<br>XMLHttpRequest 对象可以在不向服务器提交整个页面的情况下，实现局部更新网页。<br>XMLHttpRequest的对象用于客户端和服务器之间的异步通信。</p>
-<p>可以新建一个XMLHttpRequest对象实例，并且打开通信</p>
-<pre><code>var req = new XMLHttpRequest();
-req.open(&quot;post&quot;, &quot;/url&quot;, false);
-req.send(data);
-</code></pre>
-<p>ajax对此进行了封装</p>
-<p>前端使用ajax提交表单数据进行通信，当没有返回结果的时候，可以直接使用$(‘#formid’).submit() (这是jquery包装了ajax方式)将表单提交到后台,表单提交一般都需要返回结果</p>
-<p>ajax教程 <a target="_blank" rel="noopener" href="https://www.w3cschool.cn/ajax/ajax-tutorial.html">https://www.w3cschool.cn/ajax/ajax-tutorial.html</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX/Getting_Started">https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX/Getting_Started</a><br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX">https://developer.mozilla.org/zh-CN/docs/Web/Guide/AJAX</a></p>
-<p>在提交表单时，前端有集合表单数据的不同方式,应对不同的场景</p>
-<p>jquery  <a target="_blank" rel="noopener" href="https://www.jquery123.com/category/attributes/">https://www.jquery123.com/category/attributes/</a><br><a target="_blank" rel="noopener" href="https://api.jquery.com/">https://api.jquery.com/</a><br><a target="_blank" rel="noopener" href="https://jquery.cuishifeng.cn/get.html">https://jquery.cuishifeng.cn/get.html</a><br><a target="_blank" rel="noopener" href="https://www.w3school.com.cn/jquery/index.asp">https://www.w3school.com.cn/jquery/index.asp</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhuxiaojie/p/4783939.html">https://www.cnblogs.com/zhuxiaojie/p/4783939.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.kancloud.cn/lirg199/devnote/343374">https://www.kancloud.cn/lirg199/devnote/343374</a></p>
-<p>简单的表单可以直接用变量和相应的数据<br>复杂的表单可以用$(‘#formid’).serialize(),FormData,以及jquery.form.js(也就是jquery对ajax的一些封装对象和函数)<br>单纯序列化无法传递文件，一般是FormData</p>
-<p>关于FormData,MDN文档: <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects">https://developer.mozilla.org/zh-CN/docs/Web/API/FormData/Using_FormData_Objects</a></p>
-<p>不同content-type,使用不同的注解,json 就用 @RequestBody，form 表单就用 @RequestParam 或不写，form-data 就用 MultipartFile。<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/7054441239839506446">https://juejin.cn/post/7054441239839506446</a></p>
-<p>HttpServletRequest可以兼容三种，属于比较底层的方式</p>
-<p>不同的content-type <a target="_blank" rel="noopener" href="https://blog.csdn.net/java_xxxx/article/details/81205315">https://blog.csdn.net/java_xxxx/article/details/81205315</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/cpxsxn/article/details/123818812">https://blog.csdn.net/cpxsxn/article/details/123818812</a></p>
-<p>FormData 的函数 <a target="_blank" rel="noopener" href="https://blog.csdn.net/WU5229485/article/details/84400315">https://blog.csdn.net/WU5229485/article/details/84400315</a></p>
-<p>后端接收前端数据的常用注解  <a target="_blank" rel="noopener" href="https://blog.csdn.net/wphero/article/details/108260313">https://blog.csdn.net/wphero/article/details/108260313</a><br>@RequestBody 只能接收Json类数据</p>
-<p>@RequestParam可以用于接收application&#x2F;x-www-form-urlencoded和multipart&#x2F;form-data类型的数据</p>
-<p>当前端请求过于复杂，可以使用@RequestPart来接收对象<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6983228289703739428">https://juejin.cn/post/6983228289703739428</a></p>
-<p>当表单数据比较简单时，可以使用注解@RequestParam@RequestBody获得表单数据<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44752797/article/details/118446420">https://blog.csdn.net/weixin_44752797/article/details/118446420</a></p>
-<p>vue项目主要用axios,功能比ajax更强大,axios对ajax进行了增强和封装<br><a target="_blank" rel="noopener" href="https://myoule.zhipin.com/questions/e1ed13dbd35e0e3etnVy39y1FVE~.html">https://myoule.zhipin.com/questions/e1ed13dbd35e0e3etnVy39y1FVE~.html</a><br><a target="_blank" rel="noopener" href="https://learn-anything.cn/axios">https://learn-anything.cn/axios</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhuxiaojie/p/4783939.html">https://www.cnblogs.com/zhuxiaojie/p/4783939.html</a></p>
-<p>前后端主要用Json数据格式通信</p>
-<p>FormData</p>
-<p>后端接收数据方式，不同的数据格式，不同的通信方式，可能会用到不同的注解<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/ShiuHB/article/details/109674343">https://blog.csdn.net/ShiuHB/article/details/109674343</a></p>
-<p>@RequestMapping 和 @ResponseBody的用法与区别<br><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844904180235108359">https://juejin.cn/post/6844904180235108359</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/magi1201/article/details/82226289">https://blog.csdn.net/magi1201/article/details/82226289</a></p>
-<p>举个栗子，<br>@RequestMapping(“&#x2F;reproductionByTransPlan”),HttpServletRequest request,和Model model三者组合就足够应付一般的页面转换，return 下一个页面即可(可能用到redirect:&#x2F;)</p>
-<p>但是遇到post请求,又需要返回数据或者响应状态时，使用@ResponseBody</p>
-<p><a target="_blank" rel="noopener" href="https://www.csdn.net/tags/MtTakgysMTE3ODItYmxvZwO0O0OO0O0O.html">https://www.csdn.net/tags/MtTakgysMTE3ODItYmxvZwO0O0OO0O0O.html</a></p>
-<p><a target="_blank" rel="noopener" href="http://www.codebaoku.com/it-java/it-java-244954.html">http://www.codebaoku.com/it-java/it-java-244954.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903648858734600">https://juejin.cn/post/6844903648858734600</a>  RequestBody一些知识</p>
-<p>Javaweb HttpServletRequest request</p>
-<p>request.getParamter(String name);通过name获取值</p>
-<p>request.getParamterValues(String name);通过name获取value值(一般用于复选框获取值) 代码片段</p>
-<p>request.getParameterNames();直接获取表单所有对象的name值，返回值是枚举集合</p>
-<p>request.getParameterMap();直接获取表单所有对象的name值以及数据</p>
-<p>通过session来设置当前对话的共有属性<br>    HttpSession session &#x3D; request.getSession();<br>    session.setAttribute(“name”, attr);</p>
-<p>通过model来添加视图属性数据<br>有时间总结一下Model,ModelView等类的SpringMVC相关知识</p>
-<p>querySelector和getElementById的区别<br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/53b034979388">https://www.jianshu.com/p/53b034979388</a><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Leophen/p/11241411.html">https://www.cnblogs.com/Leophen/p/11241411.html</a><br>几乎只有动态和静态的区别，也就是getElementById获取到的元素可以动态响应元素本身的改变<br>以及getElmentById比querySelector的执行速度更高</p>
-<p>在使用FormData遇到的坑:</p>
-<p>前端代码:</p>
-<pre><code>$.ajax(&#123;
-    url:&#39;/taskSubmit&#39;,
-    data:form,
-    type: &#39;POST&#39;,
-    dataType: &#39;json&#39;,
-    contentType: false,
-    processData: false,
-    async: true,
-    beforeSend: function (xhr) &#123;
-        xhr.setRequestHeader(header, token)
-    &#125;,
-    success:function(data)&#123;
-
-    &#125;
-    error:function()&#123;
-
-    &#125;
-
-    &lt;form class=&quot;ui form&quot; id=&quot;scheduleSubmit&quot; name=&quot;scheduleSubmit&quot; method=&quot;post&quot; enctype=&quot;multipart/form-data&quot;&gt;
-</code></pre>
-<p>(eror和success也是JavaScript事件，只不过AJAX将其包装在一起)</p>
-<p>后端代码<br>    @RequestMapping(value &#x3D; “&#x2F;taskSubmit”,method &#x3D; RequestMethod.POST)<br>    @ResponseBody<br>    public int taskSubmit(@RequestBody   Map&lt;String, String&gt; map){</p>
-<pre><code>&#125;
-</code></pre>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35246620/article/details/59620858">https://blog.csdn.net/qq_35246620/article/details/59620858</a> (@ResponseBody和@RequestBody的区别)<br>这篇博客第二个代码展示将两者作用写反了<br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/guodefu909/p/4216327.html">https://www.cnblogs.com/guodefu909/p/4216327.html</a> 这篇博客正确</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/zhanglf02/article/details/78470219">https://blog.csdn.net/zhanglf02/article/details/78470219</a> 明确提到@RequestBody不能将multipart&#x2F;form-data的数据绑定到入参中<br>说明：request的body部分的数据编码格式由header部分的Content-Type指定。</p>
-<p>所谓的注解其实类似于Python的方法包装器，将一些共有的功能需求抽取出来，方便代码重复利用</p>
-<p>@Responsebody注解表示该方法的返回的结果直接写入 HTTP 响应正文中，一般在异步获取数据时使用；<br>在使用@RequestMapping后，返回值通常解析为跳转路径，加上@Responsebody后返回结果不会被解析为跳转路径，而是直接写入HTTP 响应正文中。例如，异步获取json数据，加上@Responsebody注解后，就会直接返回json数据。<br>@RequestBody注解则是将 HTTP 求正文插入方法中，使用适合的HttpMessageConverter将请求体写入某个对象。</p>
-<p>报错415，同时前端FormData没有数据</p>
-<img src="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/error.png" class="">
-
-<p>因为@RequestBody 不能处理multipart&#x2F;form-data的数据</p>
-<p>415错误 	服务器无法处理请求附带的媒体格式<br><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/415">https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status/415</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/majinggogogo/article/details/78383772">https://blog.csdn.net/majinggogogo/article/details/78383772</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/cc-freiheit/p/10334755.html">https://www.cnblogs.com/cc-freiheit/p/10334755.html</a> post400错误<br>1、前端提交数据的字段名称或者是字段类型和后台的实体类不一致，导致无法封装；<br>2、前端提交的到后台的数据应该是 json 字符串类型，而前端没有将对象转化为字符串类型；</p>
-<p>无法使用jquery的语法 $(‘#id’)，获得FormData对象<br>只能使用document.getElementById(“name”)来初始化FormData对象</p>
-<p>前端使用Form, 后端使用HttpServletRequest获取<br>后端报错，数据为空,而前端能够获得数据</p>
-<p>后端使用一个对象接收数据,报415错误，无法接收</p>
-<img src="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/FormData.png" class="">
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44695727/article/details/112277632">https://blog.csdn.net/qq_44695727/article/details/112277632</a></p>
-<p>FormData用法详解<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/zqian1994/article/details/79635413?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-79635413-blog-null.pc_404_mixedpudn&amp;depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-79635413-blog-null.pc_404_mixedpud">https://blog.csdn.net/zqian1994/article/details/79635413?utm_medium=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-79635413-blog-null.pc_404_mixedpudn&amp;depth_1-utm_source=distribute.pc_feed_404.none-task-blog-2~default~BlogCommendFromBaidu~Rate-4-79635413-blog-null.pc_404_mixedpud</a></p>
-<img src="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/success.png" class="">
-<p>最终成功<br>前次错误原因在于@RequestBody 用于Json对象数据而非自建对象数据</p>
-<p>最终总结，FormData传输一个对象，所以contentType和processData都为false,否则可能报错415<br>既然传输一个对象，那么后端也必须用一个相应的对象承接<br>enctype&#x3D;”multipart&#x2F;form-data” 也可以使用，不会报错</p>
-<p>终于解决了一个问题！！！</p>
-<p>以后如果前端传送文件过来 也许用到以下教程<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44732635/article/details/120724605">https://blog.csdn.net/weixin_44732635/article/details/120724605</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/75867734">https://zhuanlan.zhihu.com/p/75867734</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.chenpeman.top/archives/springmvc%E4%B8%ADrequestparam%E4%B8%8Erequestbody%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%94%A8%E6%B3%95%E5%B9%B6%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8E%E8%A1%A8%E5%8D%95%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4">https://www.chenpeman.top/archives/springmvc%E4%B8%ADrequestparam%E4%B8%8Erequestbody%E7%9A%84%E5%8C%BA%E5%88%AB%E4%B8%8E%E7%94%A8%E6%B3%95%E5%B9%B6%E5%AE%9E%E7%8E%B0%E6%96%87%E4%BB%B6%E4%B8%8E%E8%A1%A8%E5%8D%95%E5%90%8C%E6%97%B6%E6%8F%90%E4%BA%A4</a></p>
-<p>也许可以用RequestParm获得数据 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/blogtech/p/11172168.html">https://www.cnblogs.com/blogtech/p/11172168.html</a></p>
-<img src="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/RequestParam_error.png" class="">
-<p>报错400 <a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/http-400.html">https://www.runoob.com/w3cnote/http-400.html</a><br>原因在于 @RequestParam 接收多个参数时 <a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549149">https://cloud.tencent.com/developer/article/1549149</a></p>
-<p>最终成功</p>
-<img src="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/RequestParam_success.png" class="">
-<p>使用Map接收,enctype为multipart&#x2F;form-data依然可以成功(在上传文件时需要添加)</p>
-<p>总结  <a target="_blank" rel="noopener" href="https://www.cnblogs.com/dw3306/p/13691917.html">https://www.cnblogs.com/dw3306/p/13691917.html</a><br><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15304202/3105387">https://blog.51cto.com/u_15304202/3105387</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1549149">https://cloud.tencent.com/developer/article/1549149</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44543508/article/details/101026720">https://blog.csdn.net/qq_44543508/article/details/101026720</a></p>
-<p>后端在接收Array类型的数据时出现问题<br>无论使用FormData对象接收，还是RequestParam注解，String类型的数据都可以，但是数组不行</p>
-<p>使用了最简单的方式，在前端，将数组数据改为字符串，使用JSON.stringify()和contentType: ‘application&#x2F;json’,将数据从DOM中一一提出来发送过去，在后端用@RequestBody Map&lt;String,String&gt; map获得这些数据，然后得到的字符串转换为数组。这种方式无法传输文件</p>
-<p>提交的文件需要判定是否为dat格式吗</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/" data-id="cl74507lj000064sehy7ndkbh" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-    <article id="post-JavaScript学习笔记" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
-  <time class="post-time" datetime="2022-07-25T03:34:19.000Z" itemprop="datePublished">
-    <span class="post-month">7月</span><br/>
-    <span class="post-day">25</span>
-  </time>
-</a>
-   
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">JavaScript学习笔记</a>
-    </h1>
-  
-
-        <div>
-          
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/JavaScript/">JavaScript</a>
-  </div>
-
-          
-              
-
-          
-        </div>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>标记语言如HTML并不向计算机发出指令，而是被动地被读取，常用于格式化和链接</p>
-<p>javascript 装饰器和转发</p>
-<p><a target="_blank" rel="noopener" href="https://zh.javascript.info/call-apply-decorators">https://zh.javascript.info/call-apply-decorators</a><br>教程中的上下文基本都是指得对象本身，即函数的this指向何处<br>python的函数默认带有this<br>装饰器就是以函数入口为参数的函数</p>
-<p><a target="_blank" rel="noopener" href="https://zh.javascript.info/">https://zh.javascript.info/</a><br>这个要多看，常看常新</p>
-<p>不只是看懂会做会写，这样无非是按照规律复制粘贴罢了<br>重要的是明白背后的原理，为什么这么做，有什么好处，意义在哪里，逻辑是什么</p>
-<p>看懂技术思想，为了具体实现做了什么</p>
-<p>按钮控件将文件路径传入文本框<br>网上查到的资料有问题</p>
-<h2 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h2><p>脚本加载往往是异步的，这意味着会出现因为脚本尚未加载完毕，使用函数中的脚本报错的情况。</p>
-<pre><code>loadScript(&#39;/my/script.js&#39;); // 这个脚本有 &quot;function newFunction() &#123;…&#125;&quot;
-
-newFunction(); // 没有这个函数！
-</code></pre>
-<p>要使用脚本，可以使用回调函数，并使用onload()等待脚本加载完毕，以及使用onerror处理错误情况</p>
-<pre><code>function loadScript(src, callback) &#123;
-let script = document.createElement(&#39;script&#39;);
-script.src = src;
-
-script.onload = () =&gt; callback(null, script);
-script.onerror = () =&gt; callback(new Error(`Script load error for $&#123;src&#125;`));
-
-document.head.append(script);
-&#125;
-</code></pre>
-<p>但是以上方法在回调层数增多时会出现回调地狱的情形（层层嵌套，代码难以维护）</p>
-<pre><code>loadScript(&#39;1.js&#39;, function(error, script) &#123;
-
-if (error) &#123;
-    handleError(error);
-&#125; else &#123;
-    // ...
-    loadScript(&#39;2.js&#39;, function(error, script) &#123;
-    if (error) &#123;
-        handleError(error);
-    &#125; else &#123;
-        // ...
-        loadScript(&#39;3.js&#39;, function(error, script) &#123;
-        if (error) &#123;
-            handleError(error);
-        &#125; else &#123;
-            // ...加载完所有脚本后继续 (*)
-        &#125;
-        &#125;);
-
-    &#125;
-    &#125;);
-&#125;
-&#125;);
-</code></pre>
-<p>可以使用Promise更简洁更完备地完成上述功能</p>
-<pre><code>let promise = new Promise(function(resolve, reject) &#123;
-// executor（生产者，消费者）
-&#125;);
-</code></pre>
-<p>executor 会自动运行并尝试执行一项工作。尝试结束后，如果成功则调用 resolve，如果出现 error 则调用 reject。<br>由 new Promise 构造器返回的 promise 对象具有以下内部属性：<br>state —— 最初是 “pending”，然后在 resolve 被调用时变为 “fulfilled”，或者在 reject 被调用时变为 “rejected”。<br>result —— 最初是 undefined，然后在 resolve(value) 被调用时变为 value，或者在 reject(error) 被调用时变为 error。</p>
-<p>executor 只能调用一个 resolve 或一个 reject。任何状态的更改都是最终的。<br>所有其他的再对 resolve 和 reject 的调用都会被忽略</p>
-<p>使用.then语法<br>    promise.then(<br>    function(result) { &#x2F;* handle a successful result <em>&#x2F; },<br>    function(error) { &#x2F;</em> handle an error *&#x2F; }<br>    );<br>可以使用catch来处理error,而.catch(f) 调用是 .then(null, f) 的完全的模拟，它只是一个简写形式。</p>
-<p>finally类似于try catch finally </p>
-<p>finally 处理程序（handler）没有参数。在finally中，我们不知道promise是否成功。没关系，因为我们的任务通常是执行“常规”的完成程序（finalizing procedures）。<br>请看上面的例子：如你所见，finally处理程序没有参数，promise的结果由下一个处理程序处理。<br>finally处理程序将结果或 error“传递”给下一个合适的处理程序。</p>
-<p>不断使用.then构建Promise链，每个对.then的调用都会返回了一个新的promise<br>promise常用于网络请求，也可以结合fetch</p>
-<p>绑定事件函数的几个方法，以及不同之处</p>
-<h2 id="绑定事件函数"><a href="#绑定事件函数" class="headerlink" title="绑定事件函数"></a>绑定事件函数</h2><h2 id="JavaScript列表"><a href="#JavaScript列表" class="headerlink" title="JavaScript列表"></a>JavaScript列表</h2><p>可以使用Array和[]来声明列表，直接给空列表赋值会改变列表长度并添加相应位置的元素，不会报错</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://shenwuyue-xie.github.io/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-id="cl7h8etqw0001ucseg49rf6ln" class="article-share-link">分享</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-
-  
-
-
-  <nav id="page-nav">
-    <a class="extend prev" rel="prev" href="/">&amp;laquo; pre</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">next &amp;raquo;</a>
-  </nav>
-</section>
-        
-          <aside id="sidebar">
-  
-    <div class="widget-wrap">
-  <h3 class="widget-title"></h3>
-  <div class="widget">
-    <h1 class="blog-title">神无月</h1>
-    <h2 class="blog-subtitle">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h2>
-    <ul class="blog-link">
-     
-          <a href="/" title="Home">
-            <li>主页</li>
-          </a>
-        
-          <a href="/archives" title="Archives">
-            <li>归档</li>
-          </a>
-        
-          <a href="/categories" title="Categories">
-            <li>分类</li>
-          </a>
-        
-          <a href="/tags" title="Tags">
-            <li>标签</li>
-          </a>
-        
-    </ul>
-  </div>
-</div>
-
-  
-    <div class="widget-wrap">
-  <h3 class="widget-title"></h3>
-  <div class="widget">
-    <img class="avatar" src="https://avatars0.githubusercontent.com/u/20333903?v=3&amp;s=460">
-    <h2 class="author">shenwuyue</h2>
-    <h3 class="description">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h3>
-    <div class="count-box">
-      <a href="/archives"><div><strong>25</strong><br>文章</div></a>
-      <a href="/categories"><div><strong>5</strong><br>分类</div></a>
-      <a href="/tags"><div><strong>2</strong><br>标签</div></a>
-    </div>
-
-
-
-    <div class="social-link">
-      
-        <a class="hvr-bounce-in" href="http://github.com/ShanaMaid" target="_blank" title="Github">
-          Github
-        </a>
-      
-    </div>
-
-    <div class="friend-link">
-      <h2>友情链接</h2>
-      
-        <a class="hvr-bounce-in" href="http://blog.shanamaid.top/" target="_blank" title="ShanaMaid">
-          ShanaMaid
-        </a>
-      
+      </ul>
     </div>
   </div>
-</div>
+</nav>
 
   
-</aside>
+  
+    <div class="header-content">
+      <div class="post-text layout-block layout-padding">
+        <h1 class="title-wrap">神无月</h1>
+        
+          <h2 class="title-sub-wrap">清醒时做事，糊涂时跑步，大怒时睡觉，独处时思考</h2>
         
       </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy;2021 - 2022 shenwuyue<br>
-      由<a href="http://hexo.io/" target="_blank">Hexo</a>强力驱动 | 
-      主题-<a target="_blank" rel="noopener" href="https://github.com/ShanaMaid/hexo-theme-shana">Shana</a>
-      
     </div>
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+  
+</header>
+
+    <!-- 首页 -->
+
+<!-- post list container -->
+<div class="body-container">
+  <div class="content-container layout-block article-list">
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/26/js-jq%E5%AE%9E%E7%8E%B0%E6%8C%89%E9%92%AE%E9%80%89%E6%8B%A9%E6%96%87%E4%BB%B6%E5%B9%B6%E6%98%BE%E7%A4%BA%E5%9C%A8%E6%96%87%E6%9C%AC%E6%A1%86/" itemprop="url">
+                <h2 class="card-text--title">js,jq实现按钮选择文件并显示在文本框</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-26T07:02:16.000Z" itemprop="datePublished">2022-08-26</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/JavaScript/">📒 JavaScript</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/26/Java%E5%8F%8D%E5%B0%84%E6%9C%BA%E5%88%B6/" itemprop="url">
+                <h2 class="card-text--title">Java反射机制</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-26T05:45:50.000Z" itemprop="datePublished">2022-08-26</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/26/ConcurrentLinkedQueue%E5%92%8CThreadPoolExecutor/" itemprop="url">
+                <h2 class="card-text--title">ConcurrentLinkedQueue和ThreadPoolExecutor</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-26T01:56:08.000Z" itemprop="datePublished">2022-08-26</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/25/%E9%A1%B9%E7%9B%AE%E6%B5%81%E7%A8%8B/" itemprop="url">
+                <h2 class="card-text--title">项目流程</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-25T08:16:29.000Z" itemprop="datePublished">2022-08-25</time>
+            </div>
+            <ul class="wrap-list light">
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/25/Java%E7%9A%84File%E7%B1%BB%E5%92%8CPath%E7%B1%BB/" itemprop="url">
+                <h2 class="card-text--title">Java的File类和Path类</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-25T01:42:18.000Z" itemprop="datePublished">2022-08-25</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+    <li><a href="/tags/Java-IO/">🏷️ Java IO</a></li>
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/24/IDEA%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" itemprop="url">
+                <h2 class="card-text--title">IDEA使用教程</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-24T10:50:30.000Z" itemprop="datePublished">2022-08-24</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+    <li><a href="/tags/IDE/">🏷️ IDE</a></li>
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/24/Java%E6%95%B0%E7%BB%84/" itemprop="url">
+                <h2 class="card-text--title">Java数组</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-24T05:50:51.000Z" itemprop="datePublished">2022-08-24</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/17/postman%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" itemprop="url">
+                <h2 class="card-text--title">postman使用教程</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-17T07:53:22.000Z" itemprop="datePublished">2022-08-17</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/08/17/%E5%89%8D%E5%90%8E%E7%AB%AF%E9%80%9A%E4%BF%A1/" itemprop="url">
+                <h2 class="card-text--title">前后端通信</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-08-17T06:31:50.000Z" itemprop="datePublished">2022-08-17</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/Java/">📒 Java</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
+    
+      <div class="article-item layout-padding">
+        <article class="card-container article-card content-padding--large soft-size--large soft-style--box">
+          
+
+          <div class="card-text">
+            
+              <a href="/2022/07/25/JavaScript%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" itemprop="url">
+                <h2 class="card-text--title">JavaScript学习笔记</h2>
+              </a>
+            
+            <div class="card-text--row">
+              <span>发布于</span>
+              <time  class="" datetime="2022-07-25T03:34:19.000Z" itemprop="datePublished">2022-07-25</time>
+            </div>
+            <ul class="wrap-list light">
+  
+    <li><a href="/categories/JavaScript/">📒 JavaScript</a></li>
+  
+</ul>
+            <ul class="wrap-list light">
+  
+</ul>
+          </div>
+        </article>
+      </div>
     
   </div>
-</footer>
-    </div>
-    
-
-<script src="//apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="//apps.bdimg.com/libs/wow/0.1.6/wow.min.js"></script>
-<script>
-new WOW().init();
-</script>   
-
-
-  
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-
-  
-<script src="/plugin/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-  
-<link rel="stylesheet" href="/plugin/galmenu/GalMenu.css">
-
-  
-<script src="/plugin/galmenu/GalMenu.js"></script>
-
-  <div class="GalMenu GalDropDown">
-      <div class="circle" id="gal">
-        <div class="ring">
-          
-            <a href="/" title="" class="menuItem">首页</a>
-          
-            <a href="/tags" title="" class="menuItem">标签</a>
-          
-            <a href="/categories" title="" class="menuItem">分类</a>
-          
-            <a href="/archives" title="" class="menuItem">归档</a>
-          
-            <a href="/xxxxxxxxx" title="" class="menuItem">xxx</a>
-          
-            <a href="/xxxxxxx" title="" class="menuItem">xxxx</a>
-          
-        </div>
-        
-          <audio id="audio" src="#"></audio>
-        
-      </div> 
 </div>
-<div id="overlay" style="opacity: 1; cursor: pointer;"></div>
-  <script type="text/javascript">var items = document.querySelectorAll('.menuItem');
-    for (var i = 0,
-    l = items.length; i < l; i++) {
-      items[i].style.left = (50 - 35 * Math.cos( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%";
-      items[i].style.top = (50 + 35 * Math.sin( - 0.5 * Math.PI - 2 * (1 / l) * i * Math.PI)).toFixed(4) + "%"
-    }</script>
-<script type="text/javascript">
-  $(document).ready(function() {
-    $('body').GalMenu({
-      'menu': 'GalDropDown'
-    })
-  });
-</script>
 
-  <section class="hidden-xs"> 
-  <ul class="cb-slideshow"> 
-    <li><span>苟利</span></li> 
-    <li><span>国家</span></li> 
-    <li><span>生死以</span></li> 
-    <li><span>岂能</span></li> 
-    <li><span>祸福</span></li> 
-    <li><span>趋避之</span></li> 
-  </ul>
-</section>
+<!-- page container -->
+
+  <nav class="page-container">
+    
+    <a class="extend prev" rel="prev" href="/">ʚ</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/">ɞ</a>
+  </nav>
+
+
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+    <div class="footer-container">
+        
+            <div class="social-icons">
+                
+                    
+                            
+                    
+                            
+                    
+                            
+                    
+                        <a href="https://github.com/shenwuyue-xie/shenwuyue-xie.github.io" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+                        </a>
+                        
+                            
+                    
+                        <a href="https://twitter.com/shenwuyue5" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+                        </a>
+                        
+                            
+            </div>
+            
+                <p>&copy;
+                    2022
+                        <a href="/" target="_blank">
+                            shenwuyue
+                        </a>
+                </p>
+
+                
+
+                        <p>Powered by <a href="https://hexo.io" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+                        <p>
+                            <a href="javascript:;" id="theme-light">🌞 浅色</a>
+                            <a href="javascript:;" id="theme-dark">🌛 深色</a>
+                            <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+                        </p>
+    </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  
+
+
+  
+
+
+
 
 <script src="/js/script.js"></script>
 
 
-
-
-  </div>
+  
+  <!-- 尾部用户自定义相关内容 -->
 </body>
 </html>
