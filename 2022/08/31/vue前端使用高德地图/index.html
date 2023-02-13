@@ -219,6 +219,124 @@ return Object.assign(&#123;&#125;, item);
 <p>search框放到一个子组件中</p>
 <p>可以使用props，父组件使用map组件，子组件接收marker要用的数据并使用</p>
 <p>iconfont 阿里巴巴矢量图标库</p>
+<p>翻页就重新渲染锚点<br>点击锚点定位定位列表中的相应数据项，点击数据项中的定位操作，画面中心为相应锚点</p>
+<p>根据id无法直接获取对应的计划或者图像信息，两个数据表数据都对不上的</p>
+<p>没必要那么多锚点，我只要默认选择第一个计划的所有图就可以了，并且可以把中心设为这些图的中央<br>然后默认锚点选择了第一个计划</p>
+<p>做不到后台管理系统的那样，能够加上一整页schedulePlan的锚点，因为schedulePlan没有经纬度信息，需要获取imagePlan，但是获取imagePlan是异步的，很难做到获取多组imagePlan并且添加锚点。要实现这套，初始化所有schedulePlan的image锚点，翻页更新所有锚点。后台管理系统使用image做到的。</p>
+<p>当用户取消了默认计划，锚点消失，选择另一个计划，添加锚点<br>要实现点击计划，产生锚点，取消计划，取消锚点，必须记录锚点列表</p>
+<p>可以使用rowSelections来指定锚点对应行</p>
+<p>解构赋值<br>gengerator可以把异步变成同步<br>可以理解对象的原型是个匿名对象。构造函数首字母应当大写，而普通函数首字母应当小写<br>let声明的变量不会成为全局对象window的属性，var可以</p>
+<p>没有name属性的input数据不会被表单提交</p>
+<p>出于安全考虑，浏览器无法获得本地文件的真实路径<br>toggle()方法切换显示和隐藏，相应的还有fadeToggle,slideToggle </p>
+<p>点击锚点，抽屉不要自动关闭，可以使用row-selection来实现背景颜色<br>按照教程使用rowClassName修改table某一行背景颜色不成功</p>
+<p>ant design vue 的customRow,rowSelection,rowClassName<br>用customRow使得鼠标移入，已存在的相应marker变化（增大）<br>marker颜色无法使用style.color改变，marker的style里面没有颜色属性<br>可以通过筛选，点击marker筛选出想要的数据行</p>
+<p>style scoped慎用，容易导致CSS设置样式不生效，style scoped设置组件样式私有，不污染全局样式。</p>
+<p>翻页时锚点应该删掉</p>
+<p>使用rowClassName实现隔行换色样式未生效，查看元素发现class已设置但是未生效<br>可以把抽屉设置成半透明</p>
+<p>发现是颜色设置有问题，必须用rgb，十六进制设置不生效，后来验证十六进制也可以，很奇怪<br>最终使用rowClassName实现了表格行背景颜色改变</p>
+<p>可以设置让用户自己增大抽屉</p>
+<p>阮一峰的网络日志 <a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/">https://www.ruanyifeng.com/blog/</a></p>
+<p>在template的属性值里面使用十六进制</p>
+<p>设置抽屉样式成功，但是无论是wrapStyle还是drawerStyle都无法达到想要的结果，先将就着用</p>
+<p>设置初始marker的size变小，在靠近或者点击marker以后增大（暂时先这样，以后可以改变颜色，但是）并且相应的数据项变背景底色，再次点击marker变小，数据项颜色消失。点击锚点后选择了相应的数据项</p>
+<p>锚点名字应该是任务名+经纬度，点击数据项以后，应该有个可以展开伸缩隐藏的框，框里有多个栏目，显示当前选择了哪些数据项，每个数据项下有多个锚点，以及相应的imageplan数据，在略过这些数据和锚点时，相应的锚点会增大，每个数据栏都可以叉掉，叉掉的同时，锚点消失，schedule锚点展示标换成普通颜色</p>
+<p>经过一个锚点，其一组锚点都会增大，相应的数据栏会变底色。略过后变小，点击锚点后，选择了其一组的schedulePlan，并且在imageplan上添加了这一组数据，被选中的锚点其图标会变颜色，同时其数据栏底变色。</p>
+<p>两个scheduleId可以对应同一个transPlanId<br>一个transPlanId对应了很多schedulePlanId和imagePlanId</p>
+<p>添加一个scheudleId对应的marker，可能把另一个scheduleId的marker也添加了，因为两者对应了同一个transPlanId,对应了同一组imagePlanID，对应了同一组marker</p>
+<p>再次添加同一组marker时，这组marker变大变小闪烁一下。</p>
+<p>下个版本将页面简化，分成多个组件，使用组件通信。<br>nextTick</p>
+<p>无法改变选中行的背景颜色，查看demo，应该是rowSelection指定了选中行的背景颜色，当选中后又取消，背景颜色换成自己指定的颜色</p>
+<p>querySelector有效，但是document.getElementsByClassName却没有效果，拿不到dom<br>因为getElementsByClassName返回数组，需要索引取元素，并且类名不能加. 因为本身参数就是取类名<br>而querySelector参数是CSS选择器结构，所以类名要加.</p>
+<p>在列表中选中数据行不需要滚动定位，滚动定位需要使用scroll属性，并且，滚动只针对table本身的scroll，其wrap，也就是抽屉的Body，如果有滚动条，并不会发生改变。也就是必须保证，wrap没有滚动栏。最终使用screen的高度来设置table的scroll高度，保证抽屉没有滚动条</p>
+<p>定位滚动设置完毕</p>
+<p>使用rowClassName设置背景颜色不成功，似乎和rowSelection默认背景颜色冲突<br>如果没有经纬度，可能报错导致无法把marker添加到各类列表中去，要处理出现没有经纬度，报错于是不能添加marker到列表中的情况</p>
+<p>光标靠近锚点，同组锚点增大，离开，锚点变小，点击，锚点维持大小</p>
+<p>JavaScript有多个缺省值，但是只想输入其中几个怎么做</p>
+<p>设置marker大小，图标一部分没法显示，imageOffset这个属性有毒，不能用<br>发现setFitView还是有问题<br>使用bottom-center后，标签变大正常了，底部不会改变位置</p>
+<p>setTimeOut,setInterval<br>在点击location，并且此scheduleId对应的transPlan已经在地图上出现了，那么其marker组应该尺寸渐变</p>
+<p>mouseOut和click出现冲突，点击后应该大小维持不变，可以使用hover，或者使用一个全局变量来控制，当前的target是否已经被点击，如果被点击就不会触发</p>
+<p>点击marker不应该触发数据抽屉，否则太频繁了<br>正在生产的计划应该闪烁<br>定位后的setFitView仅仅只需要针对刚刚出现的marker</p>
+<p>还需要加筛选条件以及imagePlan按钮</p>
+<p>schedule不应该用抽屉，image也最好不要用抽屉，抽屉对于实时定位和滚轮定位太不方便了</p>
+<p>a-modal和a-drawer出现冲突，需要将a-modal的级别提高</p>
+<p>可以将操作放在最右边，然后抽屉可以通过按钮拉长，但是rowSelection在左边勾选</p>
+<p>高级检索要添加条件</p>
+<p>Vue点击按钮添加一个card组件<br>实际上可以把Views里的文件简化，使用组件。</p>
+<p>使用v-for添加组件</p>
+<p>customRow的实时性，尝试使用类似selectedRowKeys的方式，但是总是报错</p>
+<p>不需把列表单个元素数据给组件，只需要在组件中渲染出列表来，两种方法都可以试</p>
+<p>schedulePlan选择有上限</p>
+<p>选择计划以后，无法setFitView这个计划</p>
+<p>可以先不用组件，用V-for渲染即可，也就是v-for和a-list,a-card结合，展示详细信息</p>
+<p>详细信息包括meta中的数据</p>
+<p>把抽屉列表中的信息删除一部分，放到框中。</p>
+<p>要设定高德地图放大和缩小的上下限</p>
+<p>visibility 要删除DOM，所以会比较慢，尽量使用display</p>
+<p>详细信息使用meta文件<br>一个schedule可能对应了几个meta文件</p>
+<p>可以使用z-index属性改变覆盖物层级</p>
+<p>不清楚是覆盖物层级原因还是a-list的data-source无法实时响应数据，也可能跟v-for的渲染原理有关,应该是最大原因就是V-for无法实时响应数据变化，这是V-for的一个坑。其实总结就是，无法响应Array,Map,Set变化，原理还是浅拷贝。最终使用this.$forceUpdate()可以正常更新，这个函数真好用！</p>
+<p>设置z-index无效，对于ant-design等模板，要设置z-index可能需要穿透</p>
+<p>mouseenter在点击以后，也是没办法做到立即回应，（尝试修改过最终放弃），最终发现也是无法对Map类型的数据进行实时追踪更新。<br>Vue不能监视Map或者Set数据的变化，原因和List一样。</p>
+<p>Map有三种迭代器对象<br>keys() 拿到一个迭代器对象，由键组成<br>values() 由值组成的迭代器对象<br>entries() 键值对数组组成的迭代器对象<br>但是在V-for中，如果使用v-for &#x3D; “(value,key) in map”，默认使用entries迭代器对象<br>v-for遍历一个map，v-for &#x3D; “(value,key) in map”<br>key值并非map中的key值，而是index值，value[0]才是key值，而value[1]才是真正的value值</p>
+<p>scheduleMarkerMap也要监视响应变化。暂时使用forceUpdate来更新map<br>forceUpdate更新有点慢，如果快速点击多个数据行，可能会产生BUG</p>
+<p>可以通过computed监视Map</p>
+<p>可以将scheduleMarkerMap也修改为computed操作</p>
+<p>{“auxdata”:”&#x2F;DiskArray&#x2F;GSHC2IMPS&#x2F;FREDDATA&#x2F;2019&#x2F;05&#x2F;29&#x2F;200013831_JL106B&#x2F;101&#x2F;PMS2&#x2F;200013831_PMS2_101_auxdata.dat”,”meta_time”:”2019-05-28 16:22:48”,”mode”:”LPB”,”l1_prefix”:”&#x2F;DiskArray&#x2F;GSHC2IMPS&#x2F;PRODUCT&#x2F;2019&#x2F;05&#x2F;29&#x2F;JL106B&#x2F;JL106B_PMS2_20190528162248_200013831_101_001_L1_%s&#x2F;JL106B_PMS2_20190528162248_200013831_101_%04d_001_L1_%s&#x2F;JL106B_PMS2_20190528162248_200013831_101_%04d_001_L1_%s”,”l0_prefix”:”&#x2F;DiskArray&#x2F;GSHC2IMPS&#x2F;FREDDATA&#x2F;2019&#x2F;05&#x2F;29&#x2F;200013831_JL106B&#x2F;101&#x2F;PMS2&#x2F;JL106B_PMS2_20190528162248_200013831_101_%04d_001_L0_%s”,”l1_arch”:”&#x2F;DiskArray&#x2F;GSHC2IMPS&#x2F;PRODUCT&#x2F;2019&#x2F;05&#x2F;29&#x2F;JL106B&#x2F;JL106B_PMS2_20190528162248_200013831_101_001_L1_%s&#x2F;“,”segment”:”101”,”name”:”阿什哈巴德[LPB]”,”image_plan_id”:”IMG_TASK_20190527_0082”,”sensor”:”PMS2”,”end”:”8”,”orb_prefix”:”&#x2F;DiskArray&#x2F;GSHC2IMPS&#x2F;FREDDATA&#x2F;2019&#x2F;05&#x2F;29&#x2F;200013831_JL106B&#x2F;101&#x2F;PMS2&#x2F;KSC_JL106B_008351_200013831_001_1_PMS-1_FRED_20190528162248_101”,”begin”:”1”,”others”:”{&quot;isSensitive&quot;:&quot;0&quot;,&quot;client&quot;:&quot;&quot;,&quot;deliveryType&quot;:&quot;STANDARD_PRODUCT_L1&quot;,&quot;gain&quot;:&quot;0x02-0x01&quot;,&quot;emergency&quot;:&quot;False&quot;}”}</p>
+<p>总结每种productlevel的最终生产步骤，并且每种最终生产步骤的meta文件修改了什么<br>直接写个函数，根据productlevel拿到最终的meta文件路径<br>有些没有写出meta文件路径，把 .tif改成_meta.xml文件</p>
+<p>先使用一个函数拿到固定文件夹</p>
+<p>找到每种productlevel的meta文件</p>
+<p>拿到ProductSteps数组的最后一个，再switch，不同情况下的文件在哪里</p>
+<p>和盘阵文件对不上，不知道对不对</p>
+<p>应该需要添加检索功能</p>
+<p>imageDetail展示完整的详细信息，如果要查看图片再添加功能<br>Vue使用forceUpdate更新比较慢，按快了页面反应不过来，或者更新时只针对最后一个动作。</p>
+<p>应该做成卡片的样子，然后编排一下，卡片应该可以收缩。<br>描述列表太丑了</p>
+<p>直接给object添加属性，可能该属性无法得到监控，但是如果只是展示，并不会改变，那么就不会出问题。<br>抽屉有问题，会覆盖标题，覆盖掉画面的一整个部分</p>
+<p>强行设置抽屉样式高度有问题,设置父元素,使其渲染在当前dom</p>
+<p>提交页面和参数页面加一个炫酷的背景</p>
+<p>PCI公司的GXL<br>生产状态，当前步骤</p>
+<p>应该给详细信息添加一些指向，也就是这个信息是哪个<br>可以给a-list添加一些动作，slot为actions或者extra</p>
+<p>详细信息是否使用折叠面板？</p>
+<p>注意v-for中的value和key分别是什么，value[0]和value[1]分别是map的键列和值列，这样做是为了多次使用v-for</p>
+<p>应该使得Map文件中的Dom为顶栏下方，onSubmit函数</p>
+<p>应该可以去掉a-list，只使用a-description</p>
+<p>v-for无法响应数据的实时更新</p>
+<p>Vue能响应数组通过push等方法的更新，但是不能响应通过索引直接赋值，改变数组长度这两类的变化</p>
+<p>Vue不能响应Map和Set的变化</p>
+<p>两种解决方式，将Map全部修改为数组</p>
+<p>第二种 使用mapChangeTracker，但是在实践过程中，发现单纯返回一个不用的数据完全没有用</p>
+<p>forceUpdate没什么大用，反而容易卡</p>
+<p>scheduleMarkerMap和detailData都是Map</p>
+<p>selectedRowKeys应该和detailData同步，但是当有一次selectedRowKeys去掉一个scheduleId而detailData没有跟着删掉时，此后再也删不了了</p>
+<p>可以通过v-if来刷新子组件，当v-if的值变化时，组件会被重新渲染一遍。</p>
+<p>使用key-change重新渲染组件，组件都有key，当key变化时，重新渲染组件。</p>
+<p>可能仅仅是无法响应delete这个方法</p>
+<p>JavaScript的Map将数据放在Entries这个属性下，V-for也是从中读取数据</p>
+<p>是detailData就没有改变，set时能够实时添加，但是delete没有实时删除。</p>
+<p>forceUpdate有用，是因为删除的时候不能够找到数据<br>$set和$delete没有用，因为不会放在Object中的entries，设置的时候直接放在外面的属性列上了。</p>
+<p>使用Map和Object渲染结果不同，换了取值方式也不行</p>
+<p>location的逻辑需要修正，但是不知道数据库的情况<br>部分数据没有位置信息</p>
+<p>当多个scheduleId共享同一个transplanId时,mouseenter和mouseleave</p>
+<p>数据库里面一定有多个scheduleId对应同一个transplanId，详细信息的location，list的location，以及list的mouse事件需要重新定义逻辑</p>
+<p>详细信息中的定位仅仅只是定位，如果没有就不显示，也许可以使用v-if来渲染这个定位</p>
+<p>在ant table的mouseenter事件中，发现死循环渲染，在进入数据行的时候，未点击location，不显示定位，当进入数据行，然后点击location,就会出现死循环。可以尝试使用computed，先处理再循环，最后使用比较简单的方式，watch监听this.scheduleId就好了，但是似乎没有响应selectedRowKeys的变化，需要观察scheduleId和selectedRowKeys的联动</p>
+<p>在点击的一瞬间,deepSelectedRowKeys并不会变化，只有离开了当前数据行，selectedRowKeys才会刷新，最终使用watch属性完成功能。</p>
+<p>自动定位以后可以闪一下，确定刚才被选中的列。 可以使用v-if 和 v-show，但是本项目使用@-webkit-keyframes完成闪烁功能<br>也可以使用animate.css</p>
+<p>blur事件</p>
+<p>Vue的$refs</p>
+<p>可能有重生产的Modal<br>检索表单改造完毕</p>
+<p>但是似乎除了第一页，后面的数据都无法获得imgaeList，等测试的时候再改吧</p>
+<p>正在生产只要生产状态的检索</p>
+<p>可以给Marker添加右键点击</p>
+<p>doubleClick和click冲突</p>
+<p>获得的当前步骤，是所有生产队列中的步骤，并不能直接获得当前生产计划的生产步骤</p>
+<p>日志必须换成实时生产日志，实时更新生产日志<br>详细内容是实时生产日志加所有步骤<br>生产日志不能手动刷新，必须自行刷新</p>
+<p>一种方案是，点击schedule数据行，在详细内容会获得所有的步骤，根据是否在生产队列中，判定当前步骤。同时加上实时刷新的日志</p>
+<p>还有一种方案是，详细信息只有日志（那这样为什么不在数据栏中直接看到呢，或者直接点击日志查看），然后专门有个按钮呈现当前队列的生产步骤<br>这种方案应该被替换为，不再有详细信息栏，而是只有一个数据表，并且加上一个能够显示当前生产队列的Modal<br>最后选择这种。</p>
+<p>还有一种方案，详细信息只有步骤，日志在modal呈现。</p>
+<p>选择数据项应有额外的操作，只能在测试中做</p>
+<p>satellite应该要改    </p>
+<p>应该可以重复添加addClass</p>
+<p>无法在断网情况下使用高德地图</p>
 
       </section>
 
@@ -289,7 +407,7 @@ return Object.assign(&#123;&#125;, item);
         <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
   <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
 </svg>
-        <span>25</span>
+        <span>36</span>
       </div>
       <div class="count-box--item">
         <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -403,7 +521,7 @@ return Object.assign(&#123;&#125;, item);
             </div>
             
                 <p>&copy;
-                    2022
+                    2023
                         <a href="/" target="_blank">
                             shenwuyue
                         </a>
